@@ -1,0 +1,101 @@
+App,Category,Website
+Salesforce,CRM and Sales,https://salesforce.com
+HubSpot,CRM and Sales,https://hubspot.com
+Pipedrive,CRM and Sales,https://pipedrive.com
+Attio,CRM and Sales,https://attio.com
+Twenty,CRM and Sales,https://twenty.com
+Podio,CRM and Sales,https://podio.com
+Zoho CRM,CRM and Sales,https://zoho.com/crm
+Close,CRM and Sales,https://close.com
+Copper,CRM and Sales,https://copper.com
+DealCloud,CRM and Sales,https://api.docs.dealcloud.com
+Zendesk,Support and Helpdesk,https://zendesk.com
+Intercom,Support and Helpdesk,https://intercom.com
+Freshdesk,Support and Helpdesk,https://freshdesk.com
+Front,Support and Helpdesk,https://front.com
+Pylon,Support and Helpdesk,https://usepylon.com
+LiveAgent,Support and Helpdesk,https://liveagent.com
+Plain,Support and Helpdesk,https://plain.com
+Help Scout,Support and Helpdesk,https://helpscout.com
+Gorgias,Support and Helpdesk,https://gorgias.com
+Gladly,Support and Helpdesk,https://gladly.com
+Slack,Communications and Messaging,https://slack.com
+Twilio,Communications and Messaging,https://twilio.com
+Zoho Cliq,Communications and Messaging,https://zoho.com/cliq
+Lark,Communications and Messaging,https://open.larksuite.com
+Pumble,Communications and Messaging,https://pumble.com
+Discord,Communications and Messaging,https://discord.com
+Telegram,Communications and Messaging,https://core.telegram.org
+WhatsApp Business,Communications and Messaging,https://developers.facebook.com/docs/whatsapp
+Aircall,Communications and Messaging,https://aircall.io
+Vonage,Communications and Messaging,https://developer.vonage.com
+Google Ads,Marketing Ads Email Social,https://developers.google.com/google-ads
+Meta Ads,Marketing Ads Email Social,https://developers.facebook.com/docs/marketing-apis
+LinkedIn Ads,Marketing Ads Email Social,https://learn.microsoft.com/linkedin/marketing
+GoHighLevel,Marketing Ads Email Social,https://highlevel.stoplight.io
+Mailchimp,Marketing Ads Email Social,https://mailchimp.com/developer
+Klaviyo,Marketing Ads Email Social,https://developers.klaviyo.com
+systeme.io,Marketing Ads Email Social,https://systeme.io
+Pinterest,Marketing Ads Email Social,https://developers.pinterest.com
+Threads,Marketing Ads Email Social,https://developers.facebook.com/docs/threads
+SendGrid,Marketing Ads Email Social,https://sendgrid.com
+Shopify,Ecommerce,https://shopify.dev
+WooCommerce,Ecommerce,https://woocommerce.com/document/woocommerce-rest-api
+BigCommerce,Ecommerce,https://developer.bigcommerce.com
+Salesforce Commerce Cloud,Ecommerce,https://developer.salesforce.com/docs/commerce
+Magento,Ecommerce,https://developer.adobe.com/commerce
+Squarespace,Ecommerce,https://developers.squarespace.com
+Ecwid,Ecommerce,https://api-docs.ecwid.com
+Gumroad,Ecommerce,https://gumroad.com/api
+Amazon Selling Partner,Ecommerce,https://developer-docs.amazon.com/sp-api
+fanbasis,Ecommerce,https://fanbasis.com
+DataForSEO,Data SEO Scraping,https://docs.dataforseo.com
+SE Ranking,Data SEO Scraping,https://seranking.com/api
+Ahrefs,Data SEO Scraping,https://ahrefs.com/api
+MrScraper,Data SEO Scraping,https://docs.mrscraper.com
+Apify,Data SEO Scraping,https://docs.apify.com
+Firecrawl,Data SEO Scraping,https://firecrawl.dev
+Bright Data,Data SEO Scraping,https://brightdata.com
+Sherlock,Data SEO Scraping,https://github.com/sherlock-project/sherlock
+Waterfall.io,Data SEO Scraping,https://waterfall.io
+Clay,Data SEO Scraping,https://clay.com
+GitHub,Developer Infra Data Platforms,https://docs.github.com/rest
+Vercel,Developer Infra Data Platforms,https://vercel.com/docs/rest-api
+Netlify,Developer Infra Data Platforms,https://docs.netlify.com/api
+Cloudflare,Developer Infra Data Platforms,https://developers.cloudflare.com/api
+Supabase,Developer Infra Data Platforms,https://supabase.com/docs
+Neo4j,Developer Infra Data Platforms,https://neo4j.com/docs/api
+Snowflake,Developer Infra Data Platforms,https://docs.snowflake.com
+MongoDB Atlas,Developer Infra Data Platforms,https://mongodb.com/docs/atlas/api
+Datadog,Developer Infra Data Platforms,https://docs.datadoghq.com/api
+Sentry,Developer Infra Data Platforms,https://docs.sentry.io/api
+Notion,Productivity Project Management,https://developers.notion.com
+Airtable,Productivity Project Management,https://airtable.com/developers
+Linear,Productivity Project Management,https://developers.linear.app
+Jira,Productivity Project Management,https://developer.atlassian.com
+Asana,Productivity Project Management,https://developers.asana.com
+Monday.com,Productivity Project Management,https://developer.monday.com
+ClickUp,Productivity Project Management,https://clickup.com/api
+Coda,Productivity Project Management,https://coda.io/developers
+Smartsheet,Productivity Project Management,https://smartsheet.com/developers
+Harvest,Productivity Project Management,https://help.getharvest.com/api-v2
+Stripe,Finance Fintech,https://stripe.com/docs/api
+Plaid,Finance Fintech,https://plaid.com/docs
+Binance,Finance Fintech,https://binance-docs.github.io
+Paygent Connect,Finance Fintech,https://paygent.com
+iPayX,Finance Fintech,https://ipayx.ai/docs
+QuickBooks,Finance Fintech,https://developer.intuit.com
+Xero,Finance Fintech,https://developer.xero.com
+Brex,Finance Fintech,https://developer.brex.com
+Ramp,Finance Fintech,https://docs.ramp.com
+PitchBook,Finance Fintech,https://pitchbook.com
+NotebookLM,AI Research Media,https://cloud.google.com/gemini
+Otter AI,AI Research Media,https://help.otter.ai
+Fathom,AI Research Media,https://fathom.video
+Consensus,AI Research Media,https://consensus.app
+Reducto,AI Research Media,https://reducto.ai
+Devin,AI Research Media,https://docs.devin.ai
+higgsfield,AI Research Media,https://higgsfield.ai/cli
+Mermaid CLI,AI Research Media,https://github.com/mermaid-js/mermaid-cli
+YouTube Transcript,AI Research Media,https://transcriptapi.com
+Grain,AI Research Media,https://grain.com

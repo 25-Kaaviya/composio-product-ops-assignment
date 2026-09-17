@@ -1,0 +1,154 @@
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+}
+
+body{
+font-family:Inter,Arial,sans-serif;
+background:#0f172a;
+color:white;
+line-height:1.6;
+}
+
+.hero{
+padding:70px 30px;
+text-align:center;
+}
+
+.hero h1{
+font-size:48px;
+margin-bottom:15px;
+}
+
+.hero p{
+max-width:700px;
+margin:auto;
+color:#cbd5e1;
+}
+
+.stats{
+display:flex;
+justify-content:center;
+flex-wrap:wrap;
+gap:20px;
+margin-top:40px;
+}
+
+.card{
+background:#1e293b;
+padding:25px;
+width:170px;
+border-radius:18px;
+}
+
+.card h2{
+font-size:42px;
+}
+
+section{
+padding:60px 30px;
+max-width:1000px;
+margin:auto;
+}
+
+.grid{
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
+gap:20px;
+margin-top:20px;
+}
+
+.insight{
+background:#1e293b;
+padding:22px;
+border-radius:15px;
+}
+
+.flow{
+display:flex;
+flex-direction:column;
+align-items:center;
+gap:10px;
+font-weight:bold;
+margin-top:25px;
+}
+
+table{
+width:100%;
+border-collapse:collapse;
+margin-top:20px;
+}
+
+th,td{
+padding:14px;
+border:1px solid #334155;
+text-align:left;
+}
+#verification{
+    margin-top:70px;
+}
+
+.section-text{
+    color:#cbd5e1;
+    max-width:850px;
+    margin-bottom:30px;
+}
+
+.verify-cards{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(180px,1fr));
+    gap:18px;
+    margin-bottom:35px;
+}
+
+.verify-card{
+    background:#1e293b;
+    border-radius:18px;
+    padding:25px;
+    text-align:center;
+    border:1px solid #334155;
+}
+
+.verify-card h3{
+    font-size:40px;
+    margin-bottom:8px;
+}
+
+.verify-card p{
+    color:#94a3b8;
+}
+
+.verify-table{
+    width:100%;
+    border-collapse:collapse;
+    overflow:hidden;
+    border-radius:14px;
+    background:#111827;
+}
+
+.verify-table th{
+    background:#1e293b;
+}
+
+.verify-table th,
+.verify-table td{
+    padding:14px;
+    border:1px solid #334155;
+    text-align:left;
+}
+
+.verify-table tr:hover{
+    background:#1f2937;
+}
+
+.verification-note{
+    margin-top:20px;
+    color:#94a3b8;
+}
+
+footer{
+padding:50px;
+text-align:center;
+color:#94a3b8;
+}

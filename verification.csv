@@ -1,0 +1,21 @@
+App,Agent Prediction,Official Docs,Status,Notes
+Salesforce,OAuth2,OAuth2,Correct,REST API with self-service developer portal
+HubSpot,OAuth2,OAuth2,Correct,Public developer portal
+Pipedrive,OAuth2,OAuth2,Correct,REST API available
+Attio,OAuth2,OAuth2,Correct,Developer API documented
+Twenty,Bearer Token,Bearer Token,Correct,Open-source API
+Zendesk,OAuth2,OAuth2,Correct,Public REST API
+Intercom,Bearer Token,Bearer Token,Correct,Bearer token authentication
+Freshdesk,API Key,API Key,Correct,API key authentication
+Slack,OAuth2,OAuth2,Correct,OAuth installation flow
+Twilio,API Key,API Key,Correct,REST API with API keys
+Discord,Bearer Token,Bearer Token,Correct,Bot token authentication
+Shopify,OAuth2,OAuth2,Correct,App installation OAuth flow
+WooCommerce,API Key,API Key,Correct,Consumer key and secret
+Stripe,API Key,API Key,Correct,Developer API keys
+Plaid,OAuth2,OAuth2,Correct,OAuth supported for Link integrations
+GitHub,OAuth2,OAuth2,Correct,OAuth Apps and GitHub Apps
+Notion,OAuth2,OAuth2,Correct,Public integration flow
+Jira,OAuth2,OAuth2,Correct,Atlassian OAuth 2.0
+PitchBook,Self Serve,Contact Sales / Gated,Fixed,API access requires commercial onboarding
+Amazon Selling Partner,Self Serve,Developer registration + approval,Fixed,Additional approval required

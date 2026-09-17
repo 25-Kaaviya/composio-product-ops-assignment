@@ -1,0 +1,1964 @@
+App,Category,Website,Evidence,Doc Snippet
+Salesforce,CRM and Sales,https://salesforce.com,https://www.scalekit.com/blog/salesforce-mcp-vs-api,"Auth is OAuth 2.0 + PKCE via External Client Apps (ECA) only. The required scopes are `mcp_api` and `refresh_token`. One critical constraint: you cannot use Connected Apps for MCP authentication. ECA is the only supported path.
+
+MCP endpoint format: `
+
+Official docs: `developer.salesforce.com/docs/platform/hosted-mcp-servers`
+
+### Salesforce REST API (and the Broader API Surface) [...] Auth supports OAuth Authorization Code, JWT Bearer Grant (RFC 7523) for server-to-server with no interactive flow, and Connected App client credentials. Per-user delegation and service-account patterns both work.
+
+API limits apply across all surfaces. Enterprise Edition defaults to 100K calls per day. Every call counts, including MCP tool calls.
+
+Official docs: Salesforce Platform API Integration Guide on Trailhead
+
+## Comparing Them Where It Matters for Agents
+
+### Capability Coverage [...] Salesforce Hosted MCP is now GA and covers SObject CRUD, Flows, Invocable Apex, Apex REST, Data 360, and Tableau. "
+HubSpot,CRM and Sales,https://hubspot.com,https://developers.hubspot.com/docs/apps/developer-platform/build-apps/authentication/overview,"### ​ OAuth
+
+`Bearer`
+`00000000-aaaa-xxx-yyyy-zzzzzzzzzzzz`
+`curl --request GET \
+--header ""Authorization: Bearer 00000000-aaaa-xxx-yyyy-zzzzzzzzzzzz"" \
+--url ""
+`type`
+`auth`
+`app-hsmeta.json`
+`oauth`
+`distribution`
+`marketplace`
+`private`
+`marketplace`
+`private`
+
+### ​ Static auth
+
+`curl --request GET \
+--header ""Authorization: Bearer ------"" \
+--url ""
+`type`
+`auth`
+`app-hsmeta.json`
+`static`
+`distribution`
+`private`
+
+## ​ Developer API keys [...] `hapikey`
+`appId`
+`cURL`
+`curl --request POST \
+--url ""
+
+## ​ Client credentials [...] `curl --location ' \
+ --header 'Content-Type: application/x-www-form-urlencoded' \
+ --data-urlencode 'grant_type=client_credentials' \
+ --data-urlencode 'client_id=XXXXXXXX-XXXX-XXXX-XXXX-XXXXXXXXXXXX' \
+ --data-urlencode 'client_secret=XXXXXXXX-XXXX-XXXX-XXXX-XXXXXXXXXXXX' \"
+Pipedrive,CRM and Sales,https://pipedrive.com,https://apitracker.io/a/pipedrive,"## 2 APIs
+
+### Pipedrive API
+
+### CRM API
+
+## SDKs & client libraries
+
+### OFFICIAL client-nodejs Javascript 133 52
+
+### OFFICIAL client-php PHP 10 10
+
+### 4 SDKs
+
+## Pipedrive API specifications & definitions
+
+### OpenAPI spec
+
+## Pipedrive API profile
+
+API styles
+
+Developer docs
+
+API Reference
+
+Webhooks
+
+Webhooks management API
+
+Sandbox environment
+
+-
+
+Authentication
+
+Scopes
+
+Identity protocols
+
+-
+
+SSO / Social login
+
+OAuth playground
+
+-
+
+GraphQL playground
+
+-
+
+API Explorer
+
+- [...] -
+
+API Explorer
+
+-
+
+Postman / Insomnia collections
+
+OpenAPI/Swagger specs
+
+Free developer account
+
+App listing requirements
+
+Pagination style
+
+-
+
+CLI
+
+-
+
+Query Language
+
+-
+
+Community
+
+GitHub
+
+Custom object support
+
+-
+
+Stackoverflow tags
+
+-
+
+Integrations
+
+Ecosystem
+
+-
+
+API pricing
+
+-
+
+API rate limits
+
+-
+
+API changelog
+
+Status page
+
+Open-source
+
+-
+
+Tutorials
+
+-
+
+Samples & examples
+
+-
+
+Base endpoint
+
+-
+
+GraphQL endpoint
+
+-
+
+IDE Extensions
+
+-
+
+Estimated developers
+
+Estimated customers
+
+95000 [...] Disclaimer:"
+Attio,CRM and Sales,https://attio.com,https://www.scalekit.com/blog/attio-mcp-vs-api,"MCP auth is OAuth only and interactive. The REST API supports two bearer-token types: a workspace API key (non-interactive, good for single-workspace and background jobs) and per-user OAuth 2.0 (for multi-tenant products). Your credential model changes with the path. [...] Authentication is OAuth only. You log in with your Attio account, no API keys; the agent is authenticated as your Attio user, and access is bounded by that user's workspace permissions. Read operations are auto-approved, while write operations request user confirmation. Official reference: Attio MCP overview.
+
+### Attio API [...] Authentication accepts any bearer token in the `Authorization` header. Two token types matter: a workspace API key generated under Workspace Settings, and a per-user OAuth 2.0 access token from the `Authorization Code` flow. Official reference: Attio REST API overview.
+
+## Comparing them where it matters for agents
+
+### What your agent can actually do"
+Twenty,CRM and Sales,https://twenty.com,https://www.scalekit.com/blog/stripe-mcp-vs-api,"Connect is the second boundary. MCP authorizes a single account context, so platform onboarding and acting across many connected merchant accounts remain REST patterns. High-volume usage ingestion through the v2 Meter Event Stream is REST-only as well.
+
+### The auth path each one puts you on
+
+This is where Stripe diverges from Slack, Notion, and Salesforce. Their hosted MCP servers are OAuth-only. Stripe's is not.
+
+Auth method
+
+Stripe MCP
+
+Stripe API
+
+Interactive user OAuth
+
+Yes (MCP spec) [...] Authentication is OAuth per the MCP specification for interactive clients. For autonomous agents, Stripe documents passing a restricted API key as a bearer token in the `Authorization` header. Administrators enable MCP access in the Dashboard, managed separately for sandbox and live mode. Official docs: `
+
+### Stripe API [...] ### Stripe MCP
+
+The Stripe MCP server is Stripe's official, hosted endpoint at ` with a local server also available as the `@stripe/mcp` package. It exposes tools for acc"
+Podio,CRM and Sales,https://podio.com,https://developers.podio.com/authentication,"The Podio API uses the OAuth2 protocol for authentication. This allows external apps to request authorization to Podio without having direct access to the user's password. Our API supports different OAuth flows depending on what kind of integration you are making. [...] Podio
+
+ Getting started
+ Get an API key
+ Authentication
+  + Scopes & Permissions
+  + Server-side flow
+  + Client-side flow
+  + Username & password flow
+  + App authentication flow
+ API Reference
+ Tutorials
+ Client Libraries
+ Developer Forums
+ Partner Extensions
+ Terms of Use
+
+# How to authenticate with Podio API [...] Before you can use the Podio API you must register your application. Your application is assigned a unique identifier, called ""Client ID"", together with a ""Client Secret"". You will need both of these to authenticate. The Client Secret should not be shared with anyone.
+
+### Authentication flows
+
+Podio supports four different ways of autheticating depending on what kind of application you are building:
+
+Serv"
+Zoho CRM,CRM and Sales,https://zoho.com/crm,https://apitracker.io/a/zoho-crm,"API styles
+
+Developer docs
+
+API Reference
+
+Webhooks
+
+Webhooks management API
+
+Sandbox environment
+
+-
+
+Authentication
+
+Identity protocols
+
+-
+
+SSO / Social login
+
+OAuth playground
+
+-
+
+GraphQL playground
+
+-
+
+API Explorer
+
+Postman / Insomnia collections
+
+OpenAPI/Swagger specs
+
+Free developer account
+
+App listing requirements
+
+Pagination style
+
+-
+
+CLI
+
+-
+
+Query Language
+
+Community
+
+-
+
+GitHub
+
+-
+
+Custom object support
+
+Stackoverflow tags
+
+-
+
+Integrations
+
+Ecosystem
+
+API pricing
+
+-
+
+API rate limits [...] -
+
+API rate limits
+
+-
+
+API changelog
+
+-
+
+Status page
+
+Open-source
+
+-
+
+Tutorials
+
+-
+
+Samples & examples
+
+-
+
+Base endpoint
+
+-
+
+GraphQL endpoint
+
+-
+
+IDE Extensions
+
+-
+
+Estimated developers
+
+Estimated customers
+
+150000
+
+Estimated users
+
+## Zoho CRM Videos
+
+We don't have videos for this API yet. Get in touch to suggest profile updates.
+
+## Zoho CRM API tips
+
+We don't have tips for this API yet. Get in touch if you want to submit a tip.
+
+## Zoho CRM screenshots
+
+### Developer Portal"
+Close,CRM and Sales,https://close.com,https://mcp.close.com,"We recommend accessing the MCP server via OAuth 2.0 using a supported MCP client (e.g. Claude, ChatGPT, Cursor, etc). If you prefer to interact with the MCP server using a custom setup, create an OAuth application to authenticate using OAuth 2.0 or authenticate using an API key and include the following headers in your request:
+
+```
+
+|  |
+
+| Close-API-Key: {{ Your Close API Key }} |
+| Close-Scope: {{ mcp.read, mcp.write_safe, or mcp.write_destructive }} |
+
+``` [...] Any MCP client that supports HTTP Streamable transport can connect to Close’s MCP server at ` Use either OAuth 2.0 or API key authentication via the `Close-API-Key` and `Close-Scope` headers as described above.
+
+## FAQs
+
+### Does Close MCP support SSE?
+
+We currently don’t support SSE, but please email support@close.com with your specific use case and MCP client details if this is something your team requires.
+
+### What tools does the MCP server have access to? [...] 1. Once you’ve successfully connected the MCP server, star"
+Copper,CRM and Sales,https://copper.com,https://developer.copper.com/introduction/oauth/index.html,"You can now access the Copper Developer API via OAuth2.0. This authentication method is an alternative to Copper's legacy API Keys, and is particularly well-suited for third-party integrations looking to create a seamless and secure link between their users and Copper.
+
+OAuth2.0 offers several advantages over the API Key flow: [...] Authentication is open to all users, not just administrators
+ No need to generate and copy API keys from Copper to your application
+ Readily available client libraries help with smooth integration
+
+## 2. Prerequisites¶
+
+To use OAuth2.0 with Copper, you must first register your application. This step protects requests from forgery and keeps your users secure. [...] Follow our quickstart guide to get up and running quickly.
+
+## 5. Documentation¶
+
+The detailed Copper authorization flow documentation can be found here.
+
+## 6. Access Token Management¶
+
+Active OAuth2.0 connections are shown in the Copper user interface, under Settings ➡ Integrations ➡ Active Inte"
+DealCloud,CRM and Sales,https://api.docs.dealcloud.com,https://api.docs.dealcloud.com/mcp/authentication,"🚀 New: DealCloud MCP Server — client preview starting July 2026
+
+# Authentication
+
+## OAuth
+
+DealCloud MCP uses OAuth to authenticate, letting AI assistants connect on behalf of an individual user. The user signs in through DealCloud to authorize the assistant, and the MCP server then responds in the context of that signed-in user. This keeps access scoped to each user's permissions and attributable for auditing.
+
+## User Data Access Permissions [...] The MCP layer applies the DealCloud user permission model. A user can access only the data they are permissioned for, the same as through the web portal or the API. If a user lacks access to specific objects, fields, or records, those restrictions apply to their MCP connection as well.
+
+Getting StartedAvailable Tools"
+Zendesk,Support and Helpdesk,https://zendesk.com,https://developer.zendesk.com/api-reference/introduction/security-and-auth,"### OAuth access token
+
+The Zendesk API supports OAuth authorization flows. For more information, see Using OAuth authentication with your application.
+
+An OAuth token gives access to a single Zendesk instance (the one with the OAuth client used to create the token).
+
+OAuth access tokens also permit client-side API requests. See Making cross-origin, browser-side API requests in the Zendesk API guide.
+
+In your requests, specify the access token in an Authorization header as follows:
+
+``` [...] If you plan on making an app, integration, or bot available to multiple Zendesk customers, you must use global OAuth access tokens to authenticate Zendesk API requests. You may not use regular API tokens or OAuth tokens because the Zendesk Developer Terms prohibits Zendesk customers from sharing their API credentials with you. For more information, see Set up a global OAuth client. [...] If you plan on distributing an app, integration, or bot to multiple Zendesk customers, you must use global OAut"
+Intercom,Support and Helpdesk,https://intercom.com,https://github.com/api-evangelist/intercom/blob/main/graphql/intercom-graphql.md,"Intercom uses Bearer token authentication. Tokens are either personal access tokens (PATs) generated in the developer hub or OAuth 2.0 access tokens issued after completing an OAuth flow for third-party app integrations.
+
+```
+Authorization: Bearer  
+```
+
+OAuth 2.0 authorization endpoint: `
+
+Documentation: 
+
+## Rate Limits
+
+ Standard: ~1000 requests per minute (166 req/10s)
+ Search endpoints: ~200 requests per minute (33 req/10s)
+ Bulk endpoints: ~100 requests per minute (16 req/10s) [...] ## Description
+
+Intercom does not publish a public GraphQL API. Its developer platform is built entirely on REST. The GraphQL schema in this directory is a conceptual data model derived from the official Intercom REST API (OpenAPI specification), public documentation at , and the documented resource types that underpin the platform. [...] Schema source: conceptual model derived from Intercom REST OpenAPI (`openapi/intercom-openapi.yml`) and public documentation
+ Schema status: REST-derived SDL, not fr"
+Freshdesk,Support and Helpdesk,https://freshdesk.com,https://community.freshworks.dev/t/how-to-use-oauth-authentication-mechanism-for-freshdesk-api/1691,"On the developer portal the it seems like the app creation and submission process is when you are done with the development and are ready to publish. But my case is that I need it for development purpose. How can I get this done?
+
+Any help is appreciated.
+
+Hi @rs1812,
+
+Freshdesk API doesn’t support OAuth. It only support Basic authentication mechanism. Checkout Freshdesk API documentation for detail. [...] I’m currently working on a project that integrates with Freshdesk, and I would like to know if the Freshdesk API now supports OAuth for authentication. If it does, could you please point me to the relevant documentation for implementing it?
+
+Hi @Hasindu\_Bandara,
+
+We are working on supporting OAuth for Freshdesk. So, it is expected to launch within 2 weeks.  
+We will announce it to this community when it’s launched soon. You will receive an email announcement. Stay tuned. [...] This OAuth page is for Freshdesk Marketplace apps to connect with any other third-party applications that s"
+Front,Support and Helpdesk,https://front.com,https://developer.affinity.co/pages/mcp/authentication,"OAuth authentication is only supported with the hosted MCP server (` If you are running a self-hosted MCP server, use API key authentication instead.
+
+OAuth is the preferred way to connect to the Affinity MCP Server. It provides a secure, token-based connection without requiring you to manage API keys manually, and is supported by Claude (Desktop, Web, and CLI), Notion, and ChatGPT.
+
+### ​ Authorizing Access [...] > ## Documentation Index
+>
+> Fetch the complete documentation index at:</llms.txt>
+>
+> Use this file to discover all available pages before exploring further.
+
+Affinity Developer Documentation home pagelight logodark logo
+
+DocumentationAPI ReferenceMCPData Share
+
+Reference
+
+# Authentication
+
+Learn how to authenticate with the Affinity MCP Server
+
+The Affinity MCP Server supports two authentication methods: OAuth (recommended for supported clients) and API key.
+
+## ​ OAuth (Recommended) [...] Any admin can view and disable OAuth access for each client by navigating to Settings"
+Pylon,Support and Helpdesk,https://usepylon.com,https://www.scalekit.com/blog/pylon-mcp-vs-api,"The MCP server runs on OAuth 2.0 exclusively. Pylon's support documentation is direct about the consequence: API key authentication is not currently available, which may affect usage in remote environments or platforms that do not support OAuth for remote connections.
+
+The REST API is the mirror image. One mechanism, one credential type: an admin-created Bearer token that belongs to the organization, not to a person. There is no OAuth flow, no per-user token, and no delegated grant. [...] The usual MCP vs API auth tradeoff is inverted for Pylon. MCP is OAuth 2.0 with per-user identity. The REST API accepts one thing: an admin-created Bearer token scoped to the whole organization. There is no OAuth on the API path and no per-user token. [...] Authentication is a single mechanism: Authorization: Bearer . Only Admin users can create tokens, from the API Tokens page under Settings. Tokens can be restricted by IP range or web domain, and the admin center shows each token's prefix for identi"
+LiveAgent,Support and Helpdesk,https://liveagent.com,https://www.scalekit.com/blog/stripe-mcp-vs-api,"Authentication is OAuth per the MCP specification for interactive clients. For autonomous agents, Stripe documents passing a restricted API key as a bearer token in the `Authorization` header. Administrators enable MCP access in the Dashboard, managed separately for sandbox and live mode. Official docs: `
+
+### Stripe API [...] Authentication uses API keys. Restricted keys (prefix `rk_live_`) grant granular permissions and are the recommended credential; secret keys (`sk_live_`) grant full access and are discouraged. Platforms acting across many merchants use Connect, passing the `Stripe-Account` header with the platform's own key. Official docs: `
+
+## Comparing them where it matters for agents
+
+### What your agent can actually do [...] Connect is the second boundary. MCP authorizes a single account context, so platform onboarding and acting across many connected merchant accounts remain REST patterns. High-volume usage ingestion through the v2 Meter Event Stream is REST-only as well.
+
+"
+Plain,Support and Helpdesk,https://plain.com,https://docs.cryptohopper.com/ja/docs/cryptohopper-mcp/oauth-vs-api-key-authentication,"# OAuth vs. API key authentication
+
+This page documents the two authentication mechanisms supported by the Cryptohopper Market Data MCP — OAuth 2.0 and bearer-token (API key) authentication — and explains when to choose each.
+
+## Authentication methods supported by the MCP​
+
+The Cryptohopper Market Data MCP supports two authentication mechanisms: [...] 1. OAuth 2.0— a browser-based authorisation flow. No long-lived secret is stored in the client config; the MCP client handles the token exchange and refresh on your behalf.
+2. Bearer token (API key)— a long-lived key, generated through the Cryptohopper account interface, passed in the Authorization header of every MCP request: [...] Other Cryptohopper products may use different authentication mechanisms. The Cryptohopper REST Trading API uses its own credential scheme, which is separate from MCP authentication. See Combine MCP + Cryptohopper Trading API for end-to-end agents for how the two are used together.
+
+A single Cryptohopper accou"
+Help Scout,Support and Helpdesk,https://helpscout.com,https://www.scalekit.com/blog/stripe-mcp-vs-api,"Connect is the second boundary. MCP authorizes a single account context, so platform onboarding and acting across many connected merchant accounts remain REST patterns. High-volume usage ingestion through the v2 Meter Event Stream is REST-only as well.
+
+### The auth path each one puts you on
+
+This is where Stripe diverges from Slack, Notion, and Salesforce. Their hosted MCP servers are OAuth-only. Stripe's is not.
+
+Auth method
+
+Stripe MCP
+
+Stripe API
+
+Interactive user OAuth
+
+Yes (MCP spec) [...] Authentication is OAuth per the MCP specification for interactive clients. For autonomous agents, Stripe documents passing a restricted API key as a bearer token in the `Authorization` header. Administrators enable MCP access in the Dashboard, managed separately for sandbox and live mode. Official docs: `
+
+### Stripe API [...] Stripe MCP is the unusual one. Unlike most hosted MCP servers, it supports both OAuth and a restricted API key passed as a bearer token, so headless agents are a document"
+Gorgias,Support and Helpdesk,https://gorgias.com,https://www.klavis.ai/docs/mcp-server/gorgias,"```
+ import open from 'open';  import  open  from  'open'; // Open OAuth authorization page// Open OAuth authorization pageawait open(response.oauthUrls[Klavis.McpServerName.Gorgias]); await  open(response. oauthUrls[Klavis. McpServerName. Gorgias]);
+```
+
+```
+# Copy and paste the OAuth URL into your browser # Copy and paste the OAuth URL into your browserecho ""Visit this URL to authorize:  echo ""Visit this URL to authorize: 
+```
+
+Get your Gorgias API key from your Gorgias Developer Hub. [...] # Pull the Docker image # Pull the Docker imagedocker pull ghcr.io/klavis-ai/gorgias-mcp-server:latest docker  pull ghcr.io/klavis-ai/gorgias-mcp-server:latest # Run with OAuth support (requires Klavis API key)# Run with OAuth support (requires Klavis API key)docker run -p 5000:5000 \ docker  run -p 5000:5000  \ -e KLAVIS_API_KEY=$KLAVIS_API_KEY \ -e KLAVIS_API_KEY= $KLAVIS_API_KEY  \ ghcr.io/klavis-ai/gorgias-mcp-server:latest ghcr.io/klavis-ai/gorgias-mcp-server:latest # Or run with manual [...]"
+Gladly,Support and Helpdesk,https://gladly.com,https://www.gladly.ai,"A shopping AI can't handle the return. A service bot can't help you buy. So brands bolt one beside the other and leave the customer guessing which box to talk to. Gladly is a single AI across the entire relationship, so a shopper is never dumped onto a different bot, a different tone, or a dead end.
+
+One Platform
+
+## The decision happens on your site. [...] Chat
+
+Approval
+
+Approval Image
+
+Every chat, more revenue
+
+Sharper every week
+
+Keeping your AI on track
+
+Helped by name, not number
+
+Get a Demo
+
+The #1 Agentic Commerce Platform
+
+## Agile by design.
+
+Gladly is the only retail-trained AI Commerce solution for the modern customer journey. Sell, serve, and support customers - all from the same chat.
+
+Ideal Outcome
+
+Brand Voice
+
+Switch On
+
+How Hard It Works the Sale
+
+How assertively it sells
+
+How many products it puts forward [...] ## Tuned by your team, in minutes.
+
+Your ecommerce team sets what it recommends, how it guides, and when things change. No engineers, no tickets, no rebuild.
+"
+Slack,Communications and Messaging,https://slack.com,https://docs.slack.dev/ai/slack-mcp-server,"### IP allowlist​
+
+If your app has allowed IP address ranges configured, requests to the Slack MCP server are subject to the same restrictions. API calls originating from IP addresses not on your allowlist will be rejected. Ensure that the IP addresses your MCP client uses are included in your app's allowed list.
+
+## Authentication and Token Handling​
+
+Slack supports confidential OAuth for MCP clients. You'll need to use your app's `client_id` and `client_secret` for Slack OAuth. [...] If your MCP client supports OAuth 2.0 Authorization Server Metadata (RFC 8414) per MCP spec, you can rely on that. Users go through OAuth consent and authorize the app. You can initiate this OAuth request from your UX following standard MCP metadata discovery files:
+
+ `
+ `
+
+### OAuth URL and endpoints​ [...] Slack MCP server features
+  + Searching throughout Slack
+  + Retrieving and sending messages
+  + Managing canvases
+  + Managing users
+  + Managing files
+  + Working with lists
+  + Example use cases
+ "
+Twilio,Communications and Messaging,https://twilio.com,https://en.wikipedia.org/wiki/Documentation,"## References
+
+[edit] [...] ## Producing documentation
+
+[edit] [...] other types of written documentation, for example:"
+Zoho Cliq,Communications and Messaging,https://zoho.com/cliq,https://www.zoho.com/cliq/help/restapi/v3/introduction,"# Authentication
+
+Zoho Cliq API uses the OAuth 2.0 protocol for authentication. OAuth 2.0 is an industry-standard protocol specification that enables third-party applications (also known as clients) to gain delegated access to protected resources in Zoho Cliq via an API. [...] OAuth 2.0 is an industry-standard protocol that allows you to grant a third-party website or application (i.e., a client) delegated access to Zoho Cliq's protected resources via Zoho Cliq APIs. It is a way to authenticate and authorise API requests made to Zoho Cliq.
+
+# Networks [...] Copy as Markdown
+
+Copy this page as markdown to use with AI assistants
+
+View as Markdown
+
+Open this page as markdown in a new tab
+
+Zoho Cliq's REST API is designed based on RESTful architecture principles, enabling seamless communication between your applications and Zoho Cliq. The latest version, v3, is the recommended choice for all new workflows, automations, and integrations."
+Lark,Communications and Messaging,https://open.larksuite.com,https://open.larksuite.com/document/uAjLw4CM/ukTMukTMukTM/mcp_integration/mcp_introduction,"After configuring the application information, the application access credentials can be obtained automatically; after logging into the MCP and completing user authentication, the user access credentials can be obtained automatically, with support for automatic refresh. [...] ## Features
+
+The MCP Tool uses the MCP (Model Context Protocol) protocol to connect with the Lark Open Platform, providing a rich set of OpenAPI tools that cover Lark's core functions (such as messages, groups, calendars, Base apps, etc.). It also supports application access tokens (tenant\_access\_token) and user access tokens (user\_access\_token) to ensure secure and controllable API calls. The features of the MCP Tool are as follows: [...] Provides a simple and easy-to-use command line interface for quick configuration and startup.
+ Supports various configuration methods, adapting to different usage scenarios.
+ Seamlessly integrates with mainstream AI tools (such as Trae, Cursor, Claude)."
+Pumble,Communications and Messaging,https://pumble.com,https://pumble.com/help/integrations/automation-workflow-integrations/api-keys-integration,"By using the Pumble API addon, you can interact with Pumble’s API documentation without using any complex authentication processes. This addon lets you generate an API key that allows you to send messages, reactions, and more via simple HTTP requests.
+
+Info
+
+The rate limit is up to 1000 requests per minute per user.
+
+## Install API addon #
+
+Before you can create an API key, you need to install the API addon on your Pumble workspace.
+
+Here’s how to do this: [...] You’ll receive an ephemeral message containing the generated API key. This message is not visible to other users. Copy this key for future use. The generated key enables interaction with the Addon’s public API, allowing users to send requests and execute various actions within Pumble, including: [...] 1. Click on + Add apps in the left sidebar
+2. Click on Install in the API section
+3. Allow permissions
+
+## Generate an API key #
+
+Once your API addon is installed, you can generate API keys directly in Pumble.
+
+Here’s how:
+
+1. Cli"
+Discord,Communications and Messaging,https://discord.com,https://github.com/discord/discord-api-docs,"| .gitignore | .gitignore |  |  |
+| .mintignore | .mintignore |  |  |
+| .vale.ini | .vale.ini |  |  |
+| CODE\_OF\_CONDUCT.md | CODE\_OF\_CONDUCT.md |  |  |
+| CONTRIBUTING.md | CONTRIBUTING.md |  |  |
+| LICENSE | LICENSE |  |  |
+| LICENSE-CODE | LICENSE-CODE |  |  |
+| README.md | README.md |  |  |
+| docs.json | docs.json |  |  |
+| favicon.png | favicon.png |  |  |
+| package-lock.json | package-lock.json |  |  |
+| package.json | package.json |  |  |
+|  | [...] ## Repository files navigation
+
+# Discord for Developers Documentation
+
+This repo contains the official Discord for Developers documentation, which can be viewed online HERE. Before submitting pull-requests, please remember to fully read the Contributing guidelines. [...] Except as otherwise noted, the Discord API Documentation and other content in this repository is licensed under the Creative Commons Attribution-ShareAlike 4.0 License (see LICENSE), and code samples in this repository are licensed under the MIT License (see LICEN"
+Telegram,Communications and Messaging,https://core.telegram.org,https://apis.io/apis/telegram/telegram-payments-api,"name: token
+description: Bot authentication token obtained from @BotFather (embedded in URL path)
+externalDocs:
+description: Official Telegram Bot API Documentation
+url:"
+WhatsApp Business,Communications and Messaging,https://developers.facebook.com/docs/whatsapp,https://github.com/tkhattar14/whatsapp-business-mcp,"50+ tools across 8 modules — messaging, templates, media, analytics, flows, webhooks, business profile, account management
+ Security-first — API key auth, rate limiting, input validation, webhook signature verification, error sanitization, path traversal protection
+ Official Meta API only — all calls go to `graph.facebook.com`, no unofficial/third-party APIs
+ Two transport modes — stdio (for MCP clients like Claude Desktop) and HTTP (for REST API access) [...] API key authentication on HTTP endpoints (`X-API-Key` header)
+ Rate limiting (10 req/sec per IP, in-memory token bucket)
+ Webhook signature verification (HMAC-SHA256 via `META_APP_SECRET`)
+ Input validation — phone number format, message length limits
+ Error sanitization — tokens and sensitive URLs stripped from error responses
+ Path traversal protection — media uploads restricted to allowed directory
+ Security headers — `X-Content-Type-Options`, `X-Frame-Options`, `Cache-Control` [...] | `MCP_API_KEY` | Recommended | API key for"
+Aircall,Communications and Messaging,https://aircall.io,https://developer.aircall.io/docs/authentication,"For AI agents: visit  for an index of all pages formatted in Markdown and endpoints in OpenAPI. Append .md to any documentation page URL to get its markdown version.
+
+Jump to Content
+
+Aircall for DevelopersAircall for Developers
+
+HomeDocumentationAPI Reference
+
+Log InAircall for Developers
+
+Documentation
+
+Log In
+
+1. FOUNDATIONS
+2. Authentication
+
+# Overview
+
+## Getting Started
+
+Aircall supports two ways to authenticate with the REST API: Basic Authentication and OAuth. [...] For full technical details, see the REST API reference > Basic Auth
+
+## OAuth
+
+OAuth lets your application access Aircall data on behalf of a user after they grant permission. It's more complex to implement than Basic Authentication, but it's the standard approach for integrations that serve multiple customers.
+
+#### When to use OAuth [...] Use Basic Authentication when you are connecting your own internal tools or private integration to Aircall. Use OAuth when your app needs to access Aircall data on behalf of oth"
+Vonage,Communications and Messaging,https://developer.vonage.com,https://developer.vonage.com/en/getting-started/concepts/authentication,"REM A command with parameters REM A command with  parameters vonage jwt create ^ vonage jwt create ^ --app-id='00000000-0000-0000-0000-000000000000' ^ -- app - id ='00000000-0000-0000-0000-000000000000' ^ --private-key=./private.key ^ --private- key =./ private.key ^ --sub='Alice' ^ --sub= 'Alice' ^ --acl=""{\""paths\"":{\""\/\/users\/\"":{},\""\/\/conversations\/\"":{},\""\/\/sessions\/\"":{},\""\/\/devices\/\"":{},\""\/\/push\/\"":{},\""\/\/knocking\/\"":{},\""\/\/legs\/\"":{}}}"" -- acl =""{\"" paths \"":{\""\/\/ [...] # A command with parameters # A command with parameters vonage jwt create ` vonage jwt create ` --app-id='00000000-0000-0000-0000-000000000000' ` -- app - id ='00000000-0000-0000-0000-000000000000'  ` --private-key=./private.key ` -- private - key =./private.key ` --sub='Alice' ` -- sub = 'Alice'  ` --acl='{\""paths\"":{\""\/\/users\/\"":{},\""\/\/conversations\/\"":{},\""\/\/sessions\/\"":{},\""\/\/devices\/\"":{},\""\/\/push\/\"":{},\""\/\/knocking\/\"":{},\""\/\/legs\/\"":{}}}' -- acl [...] REM A comma"
+Google Ads,Marketing Ads Email Social,https://developers.google.com/google-ads,https://github.com/googleads/google-ads-mcp,"`GOOGLE_PROJECT_ID`: Your Google Cloud project ID.
+ `GOOGLE_ADS_DEVELOPER_TOKEN`: (Optional) The developer token you want the MCP server to use (see above).
+ `GOOGLE_ADS_MCP_OAUTH_CLIENT_ID`: The OAuth Client ID you want the MCP server to use.
+ `GOOGLE_ADS_MCP_OAUTH_CLIENT_SECRET`: The OAuth Client secret you want the MCP server to use. [...] ```
+  ""mcpServers""""google-ads-mcp"" ""httpUrl"""" "" "" ""env"" ""GOOGLE_PROJECT_ID"" ""YOUR_PROJECT_ID"" "" "" ""GOOGLE_ADS_DEVELOPER_TOKEN"" ""YOUR_DEVELOPER_TOKEN"" "" ""
+  ```
+ Option 2: the Application Default Credentials method
+
+  Replace `PATH_TO_CREDENTIALS_JSON` with the path you copied in the previous step.
+
+  We also recommend that you add a `GOOGLE_CLOUD_PROJECT` attribute to the `env` object. Replace `YOUR_PROJECT_ID` in the following example with the project ID of your Google Cloud project. [...] `GOOGLE_ADS_MCP_OAUTH_CLIENT_ID`: Your Google Cloud OAuth 2.0 Client ID.
+ `GOOGLE_ADS_MCP_OAUTH_CLIENT_SECRET`: Your Google Cloud OAuth 2.0 Client Secret.
+ `GO"
+Meta Ads,Marketing Ads Email Social,https://developers.facebook.com/docs/marketing-apis,https://adlibrary.com/posts/meta-ads-mcp-setup-guide,"No. Meta's official MCP server handles authentication entirely through OAuth 2.0 — you authorize via your existing Meta Business Manager account. No developer app, no app review, no access token wrangling. That is the key advantage over older Marketing API integrations.
+
+## Bottom line [...] Meta Ads MCP is Meta's official Model Context Protocol server hosted at `mcp.facebook.com/ads`. It exposes 29 tools from the Meta Marketing API v25.0 — including campaign creation, insights retrieval, and opportunity scoring — to any MCP-compatible AI client like Claude Code. Authentication uses OAuth 2.0; you connect once and the AI agent can then read account data and, if you grant write scopes, create or modify campaigns on your behalf. [...] Hosted at mcp.facebook.com/ads, the official server implements the Model Context Protocol — an open standard that lets AI clients discover and call tools on external servers. Claude Code acts as the MCP client. Meta's server is the tool provider. Authentica"
+LinkedIn Ads,Marketing Ads Email Social,https://learn.microsoft.com/linkedin/marketing,https://www.scalekit.com/blog/linkedin-mcp-vs-api,"LinkedIn ships no official MCP server. Every ""LinkedIn MCP"" available in July 2026 is community-built or vendor-hosted, and the LinkedIn developer product catalog lists REST products only. The comparison is not MCP versus API; it is which MCP wrapper sits on top of which API surface. [...] The first family wraps the official REST API. It runs the same OAuth 2.0 Authorization Code flow, requests the same scopes, and hits the same partner gates. If your app is not approved for the Community Management API, the MCP wrapper cannot post as an organization either, because the wrapper has no privileges your app does not have."
+GoHighLevel,Marketing Ads Email Social,https://highlevel.stoplight.io,https://ghldesk.com/gohighlevel-api,"The GoHighLevel API (also called HighLevel API or GHL API) is a REST-based application programming interface providing programmatic access to every major function of the HighLevel platform. Developers use the API to build custom integrations, third-party apps for the HighLevel App Marketplace, custom workflow automation beyond the visual builder, and enterprise-grade data integrations between GoHighLevel and external systems. [...] Last updated: April 22, 2026. GoHighLevel API is a REST API that provides programmatic access to the HighLevel platform for custom integrations, third-party app development, and workflow automation beyond the visual builder. The current API version is v2 (launched 2024) with OAuth 2.0 authentication and comprehensive endpoint coverage across contacts, opportunities, calendars, workflows, conversations, and payments. Complete documentation available at highlevel.stoplight.io. Rate limits: 500 [...] GoHighLevel API is a REST-based application programming inter"
+Mailchimp,Marketing Ads Email Social,https://mailchimp.com/developer,https://mailchimp.com/developer/marketing/docs/fundamentals,"You can authenticate requests using either your API key or an OAuth access token, depending on your use case. You should use an API key if you’re writing code that tightly couples your application data to your Mailchimp account data; if you ever need to access someone else’s Mailchimp account data, you should use OAuth 2.
+
+For more information on the Mailchimp OAuth 2 flow, see Access Data on Behalf of Other Users with OAuth 2. [...] If you’re integrating with the Marketing API using one of the official client libraries, you won’t need to worry about the implementation details for authentication.
+
+### Authenticate with an API key or OAuth 2 token
+
+API keys and OAuth 2 tokens can be used to make authenticated requests the same way. We’ll refer to both as tokens.
+
+You can either use HTTP Basic Authentication or Bearer Authentication.
+
+HTTP Basic Authentication:
+
+### Basic HTTP Authentication
+
+Bash [...] Bash
+
+```
+curl --request GET \ --url ' \ --user 'anystring:TOKEN
+```
+
+Bearer Authenti"
+Klaviyo,Marketing Ads Email Social,https://developers.klaviyo.com,https://www.scalekit.com/blog/stripe-mcp-vs-api,"Connect is the second boundary. MCP authorizes a single account context, so platform onboarding and acting across many connected merchant accounts remain REST patterns. High-volume usage ingestion through the v2 Meter Event Stream is REST-only as well.
+
+### The auth path each one puts you on
+
+This is where Stripe diverges from Slack, Notion, and Salesforce. Their hosted MCP servers are OAuth-only. Stripe's is not.
+
+Auth method
+
+Stripe MCP
+
+Stripe API
+
+Interactive user OAuth
+
+Yes (MCP spec) [...] Authentication is OAuth per the MCP specification for interactive clients. For autonomous agents, Stripe documents passing a restricted API key as a bearer token in the `Authorization` header. Administrators enable MCP access in the Dashboard, managed separately for sandbox and live mode. Official docs: `
+
+### Stripe API [...] on MCP, the event-driven pipeline on REST. Either way the credential problem is the same, and that is the part that needs production-grade infrastructure."
+systeme.io,Marketing Ads Email Social,https://systeme.io,https://finance.yahoo.com/news/apollo-mcp-server-launch-positions-130000252.html,"Zero-code MCP tool creation: Apollo MCP Server lets developers instantly turn GraphQL schema or operations into MCP tools without writing a single line of procedural code.
+ Native REST and GraphQL support: Apollo MCP works with any combination of unmodified REST APIs via Apollo Connectors as well as native GraphQL services.
+ Deterministic, efficient execution: Apollo implements precise and consistent API call execution across every interaction. [...] and numerous other functional and non-functional requirements. GraphQL's declarative, schema-driven approach to API orchestration provides these capabilities out-of-the-box, making it uniquely suited to serve as the foundation for MCP implementations, especially in an AI landscape where speed, security, and agility are paramount. [...] By implementing MCP, the Apollo MCP Server enables teams to move at AI speed while maintaining appropriate governance. It also simplifies deployment, with options to start in a local environment via Apollo's"
+Pinterest,Marketing Ads Email Social,https://developers.pinterest.com,https://developers.pinterest.com/docs/getting-started/set-up-authentication-and-authorization,"Skip to content
+
+## Developer Platform
+
+# Set up authentication and authorization
+
+Pinterest API services are only available to authenticated and authorized users.
+
+Make sure your API requests on a user""s behalf include a current access token that identifies the user and defines your permissions, or scopes, for using the API on their behalf.
+
+## Before you begin
+
+Make sure you have the following items before you generate an access token:
+
+OAuth prerequisites [...] 6. Your app calls the OAuth server with the authorization code, requesting an access token.
+7. The OAuth server returns an access token.
+8. Your app accesses the Pinterest API using the token on behalf of the user. [...] Try out this endpoint with the Pinterest Postman collection. On the collection site, select OAuth under Pinterest REST API (latest) in the left navigation panel. Then select Generate access token.
+
+#### Authentication
+
+Use HTTP Basic Authentication:
+
+ Username:
+
+  `client_id`
+ Password:
+
+  `client_secret`
+
+##"
+Threads,Marketing Ads Email Social,https://developers.facebook.com/docs/threads,https://developers.facebook.com/documentation/threads/get-started,"API authentication is handled by Threads user access tokens that conform to the OAuth 2.0 protocol. Access tokens are app-scoped (unique to the app and user pair) and can be short-lived or long-lived. API requests that query Threads users or publish Threads media must include a Threads user access token. Use the Access Token Debugger to debug your Threads User Access Token.
+
+#### Short-Lived Access Tokens [...] ### Authorization
+
+Data access authorization is controlled by your app users through the use of the permissions listed below. Users must grant your app these permissions through the Authorization Window before your app can access their data. For more details, refer to our Permissions guide. [...] The Authorization Window allows your app to get authorization codes and permissions from app users. Authorization codes can be exchanged for Threads user access tokens, which must be included when fetching an app user’s profile, retrieving Threads media, publishing posts, reading replie"
+SendGrid,Marketing Ads Email Social,https://sendgrid.com,https://apis.io/apis/sendgrid/sendgrid-api-keys-api,"securitySchemes:
+BearerAuth:
+type: http
+scheme: bearer
+description: Twilio SendGrid requires you to authenticate with its APIs using an API key. The API key must be sent as a bearer token in the Authorization header.
+externalDocs:
+description: Twilio SendGrid's official developer documentation.
+url:"
+Shopify,Ecommerce,https://shopify.dev,https://evytor.vercel.app/blogs/shopify-api-documentation-accessing-the-shopify-api-documentation,"### Keywords
+
+Shopify API, API documentation, Shopify development, e-commerce API, Shopify apps, API authentication, Shopify endpoints, OAuth 2.0, REST API, GraphQL API, API rate limits, webhooks, Shopify Partners, custom storefronts, API integration, Shopify platform, API requests, Shopify store, API versioning, API troubleshooting.
+
+### Popular Hashtags [...] Welcome to your ultimate guide to the Shopify API documentation! Whether you're a seasoned developer or just starting your journey into the world of e-commerce development, understanding the Shopify API is crucial. This article provides a comprehensive overview of how to access, navigate, and effectively utilize the Shopify API documentation to build amazing apps and integrations for the Shopify platform. 🚀 We'll explore everything from authentication to common API endpoints, ensuring you have [...] Shopify regularly updates its API, so it's essential to be aware of the different versions. Using the latest version ensures you ha"
+WooCommerce,Ecommerce,https://woocommerce.com/document/woocommerce-rest-api,https://developer.woocommerce.com/docs/features/mcp,"All operations respect WooCommerce's existing permission system. The deprecated WooCommerce MCP endpoint authenticates using WooCommerce REST API keys; clients using the shared WordPress MCP adapter should follow the adapter's authentication requirements.
+
+warning [...] $features['mcp_integration'] = true;
+
+return $features;
+
+});
+
+```
+
+Alternatively, you can enable it via WooCommerce CLI:
+
+```
+
+wp option update woocommerce_feature_mcp_integration_enabled yes
+
+```
+
+## Authentication and Security​
+
+### API Key Requirements​
+
+The deprecated WooCommerce MCP endpoint authenticates using WooCommerce REST API keys in the `X-MCP-API-Key` header:
+
+```
+
+X-MCP-API-Key: ck_your_consumer_key:cs_your_consumer_secret
+
+```
+
+To create API keys: [...] {
+
+""mcpServers"": {
+
+""woocommerce_mcp"": {
+
+""type"": ""stdio"",
+
+""command"": ""npx"",
+
+""args"": [
+
+""-y"",
+
+""@automattic/mcp-wordpress-remote@latest""
+
+],
+
+""env"": {
+
+""WP_API_URL"": ""
+
+""CUSTOM_HEADERS"": ""{\""X-MCP-API-Key\"": \""YOUR_CONSUMER_KEY:YOUR_CONSUMER_SECRET\""}""
+
+"
+BigCommerce,Ecommerce,https://developer.bigcommerce.com,https://docs.bigcommerce.com,"Query storefront data with GraphQL.Real-time store event notifications.API Reference
+
+Complete REST and GraphQL API docs.AI Agent Setup
+
+Connect Cursor, Claude, or Codex to the BigCommerce developer docs via MCP.
+
+New to BigCommerce? Join our developer community to connect with our developer relations team, product and engineering teams, and fellow developers. [...] method: 'POST',
+
+mode: 'cors',
+
+headers: {
+
+'Content-Type': 'application/json',
+
+'Accept': 'application/json',
+
+'Authorization': `Bearer {{TOKEN}}`
+
+},
+
+body: JSON.stringify({
+
+query: `query SingleProduct {
+
+site {
+
+products (entityIds: {{product ID}}) {
+
+edges {
+
+node {
+
+id
+
+entityId
+
+name
+
+prices {
+
+price {
+
+value
+
+currencyCode
+
+}
+
+}
+
+}
+
+}
+
+}
+
+}
+
+}`
+
+})
+
+})
+
+.then(res => res.json())
+
+.then(res => console.log(res))
+
+.catch(err => console.error(err));
+
+```
+
+### Customer Login API"
+Salesforce Commerce Cloud,Ecommerce,https://developer.salesforce.com/docs/commerce,https://github.com/api-evangelist/salesforce-commerce-cloud/blob/main/apis.yml,"properties:
+
+- type: Documentation
+
+url: 
+
+- type: APIReference
+
+url: 
+
+- type: API Explorer
+
+url: 
+
+- type: Why Use SCAPI
+
+url: 
+
+- type: Custom APIs
+
+url: 
+
+- url: graphql/salesforce-commerce-cloud-graphql.md
+
+type: GraphQL
+
+- aid: salesforce-commerce-cloud:ocapi
+
+name: Open Commerce API (OCAPI)
+
+description: Legacy REST API for B2C Commerce Cloud, organized into Shop API, Data API, and Meta API. Authentication [...] description: 'Salesforce Commerce Cloud (formerly Demandware) is an enterprise commerce platform supporting B2C
+
+and B2B storefronts, order management, product content, and headless commerce experiences. Commerce Cloud exposes
+
+two REST API products: the legacy Open Commerce API (OCAPI) and the modern Salesforce Commerce API (SCAPI), a
+
+unified RAML-defined API family built for headless commerce. SCAPI uses OAuth 2.0 via Salesforce Account Manager [...] uses OAuth 2.0 via Salesforce Account Manager. OCAPI is deprecated for new projects in favor of SCAPI but remains
+
+supp"
+Magento,Ecommerce,https://developer.adobe.com/commerce,https://devdocs.mage-os.org/docs/main/graphql-apis,"## Conclusion
+
+This documentation provides a comprehensive guide to the GraphQL APIs in Magento 2. It covers the basics of querying and mutating data, pagination, filtering and sorting, error handling, authentication and authorization, caching, and exploring the GraphQL schema.
+
+By utilizing the power of GraphQL, you can efficiently retrieve and manipulate data from your Magento 2 system, providing a seamless and flexible experience for your users. [...] ## Getting Started
+
+To get started with the Magento 2 GraphQL API, you need to have a basic understanding of GraphQL and familiarity with PHP and Magento 2. You'll also need to have a valid authentication token to access the API.
+
+To authenticate and obtain an access token, you can use the Magento 2 token-based authentication system. Once you have the token, you can include it in the headers of your GraphQL requests as follows:
+
+```
+
+Authorization: Bearer <access_token>
+
+``` [...] This document provides comprehensive documentation for "
+Squarespace,Ecommerce,https://developers.squarespace.com,https://developers.squarespace.com/commerce-apis/authentication-and-permissions,"Squarespace Developer Platform: APIs, Apps, and DocsSquarespace Developer Platform: APIs, Apps, and Docs
+
+Getting Started
+
+# Authentication and permissions
+
+To keep Squarespace merchant site data private and secure, every request to Commerce APIs must be authenticated and have minimum permissions. However, authenticated requests automatically have access to public site data, such as site name, identifier, language, currency, time zone, and location. [...] 1. Log in to a Squarespace site.
+2. In the left nav, click Settings; scroll down and click Advanced.
+3. Click Developer API Keys.
+4. Click the GENERATE KEY button.
+5. In the dialog, add a key name under ""KEY NAME"", and select one or more Commerce APIs under ""PERMISSIONS"" and permission level.
+6. Record the generated key in a safe and secure place.
+
+For security reasons, this is the only time the API key is visible. API keys will never expire as long as the merchant site remains active. [...] Depending on your development needs, you ca"
+Ecwid,Ecommerce,https://api-docs.ecwid.com,https://github.com/Ecwid/ecwid-api-docs/blob/master/includes/_authentication.md,"## Access tokens
+
+All Ecwid REST API requests require authentication. Ecwid supports oAuth2 protocol to provide applications with an easy way to authenticate and access store data on behalf of the user with access tokens. [...] Retrieving an access token in a complete oAuth flow includes the following steps:
+
+1. You send the user to Ecwid authorization dialog available on the Ecwid's oAuth endpoint.
+2. Upon authorization, Ecwid redirects the user to the return URL specified in the request.
+3. The your code requests an access token from Ecwid. This access\_token will be used as API key in all API calls. [...] Ecwid user grants or denies access to certain data in their store for the particular application - then the application gets its own secure access token (and optional public token) upon authorization and uses that token as a key to make REST API calls to Ecwid."
+Gumroad,Ecommerce,https://gumroad.com/api,https://rollout.com/integration-guides/gumroad/api-essentials,"### Best Practices
+
+ Keep your access token and application credentials secure and confidential .
+ Read the official API documentation at ` for complete details on endpoints and usage .
+ Consider using a server-side approach when working with sensitive API credentials to avoid exposing them client-side .
+
+In summary, the most recent version of the Gumroad API is v2, which uses OAuth 2.0 for authentication and provides a RESTful interface for interacting with various Gumroad features and data. [...] Based on the search results provided, here is a summary of the most recent version of the Gumroad API:
+
+### Key Points
+
+ The current version of the Gumroad API is v2 .
+ The API is based on REST principles and returns JSON for all requests .
+ Authentication is done using OAuth 2.0 .
+ The base URL for API requests is ` .
+
+### API Features [...] The Gumroad API uses standard HTTP status codes to indicate the status of requests, including 429 Too Many Requests which is typically used for rate li"
+Amazon Selling Partner,Ecommerce,https://developer-docs.amazon.com/sp-api,https://www.youtube.com/watch?v=G7RAXlklQV4,"Amazon just shipped an official MCP server for the Selling Partner API. In this video I test the Amazon SP-API MCP on a real account: both servers, the dev tools, a live demo, where it's genuinely great for developers, where it stops, and a faster way to actually get usable Amazon data.
+
+Amazon SP-API Dev MCP (official): [...] Amazon just shipped something very useful, an official local MCP server for their Amazon selling partner API. Actually, two servers that turn any AA assistant into the SP-API expert. Can use it in Cloud Cursor, Codex, and Kiro. I actually tested it on a real account and I will walk you through everything in this video. And honestly, I'm very surprised because it's a very good for developers. But I also found its limitations and reasons why it may not be the best tool for you. And in the end of [...] And in the end of the video, I'll show you also the alternatives. So, let's dive to it. So, actually, first of all, I found this SP-API documentation. First one is ac"
+fanbasis,Ecommerce,https://fanbasis.com,https://developer.affinity.co/pages/mcp/authentication,"OAuth authentication is only supported with the hosted MCP server (` If you are running a self-hosted MCP server, use API key authentication instead.
+
+OAuth is the preferred way to connect to the Affinity MCP Server. It provides a secure, token-based connection without requiring you to manage API keys manually, and is supported by Claude (Desktop, Web, and CLI), Notion, and ChatGPT.
+
+### ​ Authorizing Access [...] > ## Documentation Index
+>
+> Fetch the complete documentation index at:</llms.txt>
+>
+> Use this file to discover all available pages before exploring further.
+
+Affinity Developer Documentation home pagelight logodark logo
+
+DocumentationAPI ReferenceMCPData Share
+
+Reference
+
+# Authentication
+
+Learn how to authenticate with the Affinity MCP Server
+
+The Affinity MCP Server supports two authentication methods: OAuth (recommended for supported clients) and API key.
+
+## ​ OAuth (Recommended) [...] Any admin can view and disable OAuth access for each client by navigating to Settings"
+DataForSEO,Data SEO Scraping,https://docs.dataforseo.com,https://dataforseo.com/blog/a-kickstart-guide-to-using-dataforseo-apis,"1 Get an API client. You can create your REST client or use one of the ready-made, officially supported clients for PHP, Python, C#, Java, and TypeScript – listed here in our documentation.
+
+2 Regardless of the programming language, your unique API credentials should be passed in the ‘Authorization’ header within the request in the following format:
+
+`Authorization: Basic login:password` [...] Instead of “login” and “password”, use your API login and password encoded in Base64. You can find your DataForSEO API login and password, as well the Base64-encoded string in the API Access section of the Dashboard.
+
+For more information about Authentication for making DataForSEO API calls, refer to our documentation.
+
+3 Indicate the URL of the API endpoint of your choice. You can copy it from our documentation, e.g. ` [...] ### Summary
+
+In summary, APIs enable seamless interaction between software systems. The main API components include the API client, API call, API server, and API response. D"
+SE Ranking,Data SEO Scraping,https://seranking.com/api,https://seranking.com/api/integrations/mcp,"The MCP server supports passing OAuth tokens and API key directly in the `Authorization: Bearer`  header instead of using the interactive authentication flow.
+
+You can use this to interact with the MCP server programmatically, provide read-only access through a restricted API key, or integrate with an existing SE Ranking OAuth application without an extra authentication hop.
+
+ No tools appearing after connecting? [...] Copy
+
+```
+claude mcp add --transport http se-ranking 
+```
+
+Then run `/mcp` once you’ve opened a Claude Code session to go through the authentication flow.
+
+Option B: API key — skip the OAuth flow and pass your key as headers. Right for headless environments, CI runners, shared dev boxes, or when the browser handoff is awkward.
+
+Copy
+
+```
+claude mcp add --transport http se-ranking  \  
+ --header ""X-Api-Key: ""
+``` [...] ### General
+
+Our MCP server supports Streamable HTTP transports. This transport uses OAuth 2.1 with dynamic client registration for authentication at the f"
+Ahrefs,Data SEO Scraping,https://ahrefs.com/api,https://www.scalekit.com/blog/ahrefs-mcp-vs-api,"The MCP surface is retrieval-oriented: Site Explorer, Keywords Explorer, Rank Tracker reads, SERP Overview, Batch Analysis, Brand Radar, GSC Insights. Write and project-management operations (Rank Tracker projects, Keywords Explorer lists) live in the API.
+ MCP auth is an OAuth consent that mints an API key tagged with MCP scope. The REST API uses Authorization: Bearer keys created by workspace owners or admins. Both consume the same monthly API unit allowance; neither is a free lane. [...] MCP auth is an OAuth consent. Approving it mints an Ahrefs API key carrying the MCP scope; you can also generate an MCP key by hand, and Enterprise customers may connect with existing keys. The credential is a scoped key behind a consent screen, not a separate credential type. [...] Connection is an OAuth consent screen. Once approved, a dedicated API key tagged with `MCP` scope appears in your account; you can also mint an MCP key manually, and Enterprise customers can connect with existing keys. T"
+MrScraper,Data SEO Scraping,https://docs.mrscraper.com,https://docs.mrscraper.com/docs/api/overview,"## Introduction
+
+The MrScraper API provides a powerful and flexible way to programmatically scrape web pages and retrieve structured data. Built on REST principles, our API offers predictable resource-oriented URLs, accepts JSON-encoded request bodies, returns JSON-encoded responses, and uses standard HTTP response codes.
+
+## API Features
+
+### JSON Format
+
+All requests with a payload require `Content-Type: application/json` header. All responses are returned in JSON format.
+
+### Authentication [...] ### Authentication
+
+All API endpoints require authentication using an API token passed in the `x-api-token` header. See the Authentication page for details.
+
+### Pagination
+
+List endpoints support pagination to handle large datasets efficiently. See the Pagination page for details.
+
+### Response Headers
+
+Track token usage, bandwidth usage, execution runtime, and target status codes in response headers. See the Response Headers page for details.
+
+### Error Handling [...] ### Error Handling
+
+"
+Apify,Data SEO Scraping,https://docs.apify.com,https://finance.yahoo.com/news/apollo-mcp-server-launch-positions-130000252.html,"Zero-code MCP tool creation: Apollo MCP Server lets developers instantly turn GraphQL schema or operations into MCP tools without writing a single line of procedural code.
+ Native REST and GraphQL support: Apollo MCP works with any combination of unmodified REST APIs via Apollo Connectors as well as native GraphQL services.
+ Deterministic, efficient execution: Apollo implements precise and consistent API call execution across every interaction. [...] and numerous other functional and non-functional requirements. GraphQL's declarative, schema-driven approach to API orchestration provides these capabilities out-of-the-box, making it uniquely suited to serve as the foundation for MCP implementations, especially in an AI landscape where speed, security, and agility are paramount. [...] seamless AI access to data and services."
+Firecrawl,Data SEO Scraping,https://firecrawl.dev,https://docs.firecrawl.dev/api-reference/introduction,"For authentication, it’s required to include an Authorization header. The header should contain `Bearer fc-123456789`, where `fc-123456789` represents your API Key.
+
+```
+Authorization: Bearer fc-123456789Authorization:  Bearer fc-123456789
+```
+
+​
+
+## ​ Response codes [...] ## Map
+
+Get a complete list of URLs from any website quickly and reliably.
+
+## Search
+
+Search the web and get full page content in any format.
+
+## ​ Agentic Features
+
+## Extract
+
+Extract structured data from entire webpages using natural language.
+
+## ​ Base URL
+
+All requests contain the following base URL:
+
+```
+   
+```
+
+## ​ Authentication"
+Bright Data,Data SEO Scraping,https://brightdata.com,https://docs.brightdata.com/introduction,"```
+{{ ""mcpServers"": { ""mcpServers"": { ""brightdata-mcp"": { ""brightdata-mcp"": { ""command"": ""npx"",  ""command"": ""npx"", ""args"": [""-y"", ""@brightdata/mcp""],  ""args"": [""-y"", ""@brightdata/mcp""], ""env"": { ""env"": { ""API_TOKEN"": """"  ""API_TOKEN"": """" } } } } } }}}
+```
+
+```
+codex mcp add brightdata --env API_TOKEN=YOUR_API_KEY -- npx -y @brightdata/mcp codex  mcp  add  brightdata --env API_TOKEN=YOUR_API_KEY --  npx -y @brightdata/mcp
+``` [...] ```
+curl -X POST \ curl -X  POST  \ "" \ ""  \ -H ""Authorization: Bearer YOUR_API_KEY"" \ -H ""Authorization: Bearer YOUR_API_KEY""  \ -H ""Content-Type: application/json"" \ -H ""Content-Type: application/json""  \ -d '[{""url"": "" -d '[{""url"": ""
+``` [...] Scrape any site, buy ready-made datasets. Thousands of pre-built scrapers, one API key.
+
+Read  and get me set up with Bright Data
+
+5,000 free credits per month, no credit card required. See the free tier.
+
+Quickstart
+
+Scrape your first page and get structured JSON in three steps.You're an agent? Start here
+
+llms.txt,"
+Sherlock,Data SEO Scraping,https://github.com/sherlock-project/sherlock,https://www.scalekit.com/blog/stripe-mcp-vs-api,"Connect is the second boundary. MCP authorizes a single account context, so platform onboarding and acting across many connected merchant accounts remain REST patterns. High-volume usage ingestion through the v2 Meter Event Stream is REST-only as well.
+
+### The auth path each one puts you on
+
+This is where Stripe diverges from Slack, Notion, and Salesforce. Their hosted MCP servers are OAuth-only. Stripe's is not.
+
+Auth method
+
+Stripe MCP
+
+Stripe API
+
+Interactive user OAuth
+
+Yes (MCP spec) [...] Authentication is OAuth per the MCP specification for interactive clients. For autonomous agents, Stripe documents passing a restricted API key as a bearer token in the `Authorization` header. Administrators enable MCP access in the Dashboard, managed separately for sandbox and live mode. Official docs: `
+
+### Stripe API [...] on MCP, the event-driven pipeline on REST. Either way the credential problem is the same, and that is the part that needs production-grade infrastructure."
+Waterfall.io,Data SEO Scraping,https://waterfall.io,https://docs.waterfall.io/v1/introduction,"| Account Reporting | Sync | Retrieve usage counters at the account and key level. |
+| API Key Management | Sync | Create and manage sub-keys under a master key. | [...] | Company Titles | Sync | Get all active job titles at a company by domain or LinkedIn. Ideal for flexible title targeting and use alongside Search Contact title lists. Beta. |
+| Job Change Detection | Sync | Check if a contact is still at a given company. Returns status and a profile snapshot. |
+| Email Verification | Sync | Verify an email address and return deliverability status. |
+| Webhook JWKS | Sync | Fetch Ed25519 public keys for verifying signed webhook deliveries. | [...] > ## Documentation Index
+>
+> Fetch the complete documentation index at:</llms.txt>
+>
+> Use this file to discover all available pages before exploring further.
+
+Waterfall.io API Documentation home pagelight logodark logo
+
+General guidance
+
+# Introduction
+
+Complete API reference for Waterfall — find and enrich contacts, prospect by title and c"
+Clay,Data SEO Scraping,https://clay.com,https://www.scalekit.com/blog/clay-mcp-vs-api,"MCP auth is OAuth only. There is no static credential path on either the hosted server or the local clay mcp CLI server, both of which resolve a browser-established session. The Public API authenticates with a clay-api-key header tied to a specific Clay user and their workspace access.
+ Clay's credit budgets, function-level permissions, and usage monitoring are scoped to MCP users. If your background agent runs on a Public API key, none of those guardrails apply to it. [...] { ""display\_name"": ""Clay Public API"", ""description"": ""Run Clay routines, searches, and table queries through the Clay Public API"", ""auth\_patterns"": [ { ""type"": ""API\_KEY"", ""display\_name"": ""Clay API key"", ""description"": ""Authenticate with a Clay Public API key"", ""auth\_header\_key\_override"": ""clay-api-key"", ""fields"": [ { ""field\_name"": ""api\_key"", ""label"": ""Clay API key"", ""input\_type"": ""password"", ""hint"": ""Create it in Clay under Settings > Account > API keys (beta)"", ""required"": true } ] } [...] For a B2B produ"
+GitHub,Developer Infra Data Platforms,https://docs.github.com/rest,https://dev.to/gr2m/github-api-authentication-introduction-39dj,"Authenticating requests is required for GitHub's GraphQL API and strongly encouraged for GitHub's REST API.
+
+While it is possible to send unauthenticated REST API requests, only 60 requests per hour are permitted. Unauthenticated requests are rate limited based on IP addresses, so if you sent them from virtual servers such as most CI environments they are likely depleted most of the time.
+
+# Example"
+Vercel,Developer Infra Data Platforms,https://vercel.com/docs/rest-api,https://vercel.com/docs,"# Create an API key and export the key it prints # Create an API key and export the key it printsvercel ai-gateway api-keys create vercel ai-gateway  api-keys  createexport AI_GATEWAY_API_KEY=""your-ai-gateway-api-key"" export  AI_GATEWAY_API_KEY =""your-ai-gateway-api-key""  # Call any model through one endpoint # Call any model through one endpointcurl  \ curl   \ -H ""Authorization: Bearer $AI_GATEWAY_API_KEY"" \  -H  ""Authorization: Bearer $AI_GATEWAY_API_KEY""  \ -H ""Content-Type: [...] ``` [...] ```"
+Netlify,Developer Infra Data Platforms,https://docs.netlify.com/api,https://www.scalekit.com/blog/netlify-mcp-vs-api,"The MCP path is OAuth-first: Netlify recommends its remote server with OAuth 2.1, with a local npx server as a fallback. The REST API authenticates with a Personal Access Token (PAT) bearer token or an OAuth2 app acting on behalf of a user.
+ Netlify's programmatic access is user-scoped on both paths. There is no team-scoped, non-interactive installation credential like a GitHub App installation token, so a multi-tenant agent needs one connected account per user either way. [...] Netlify launched its official Model Context Protocol (MCP) server in June 2025 during its Agent Week. It acts as a bridge that hands agents Netlify's API, CLI, and prompt context behind a single tool interface. Netlify recommends the remote server, reached at its hosted MCP endpoint with browser-based OAuth 2.1, and also ships a local server run with npx -y @netlify/mcp on Node.js 22 or higher. The local server can fall back to a NETLIFY\_PERSONAL\_ACCESS\_TOKEN environment variable when [...] MCP is the faster"
+Cloudflare,Developer Infra Data Platforms,https://developers.cloudflare.com/api,https://www.scalekit.com/blog/stripe-mcp-vs-api,"Connect is the second boundary. MCP authorizes a single account context, so platform onboarding and acting across many connected merchant accounts remain REST patterns. High-volume usage ingestion through the v2 Meter Event Stream is REST-only as well.
+
+### The auth path each one puts you on
+
+This is where Stripe diverges from Slack, Notion, and Salesforce. Their hosted MCP servers are OAuth-only. Stripe's is not.
+
+Auth method
+
+Stripe MCP
+
+Stripe API
+
+Interactive user OAuth
+
+Yes (MCP spec) [...] on MCP, the event-driven pipeline on REST. Either way the credential problem is the same, and that is the part that needs production-grade infrastructure. [...] Authentication is OAuth per the MCP specification for interactive clients. For autonomous agents, Stripe documents passing a restricted API key as a bearer token in the `Authorization` header. Administrators enable MCP access in the Dashboard, managed separately for sandbox and live mode. Official docs: `
+
+### Stripe API"
+Supabase,Developer Infra Data Platforms,https://supabase.com/docs,https://supabase.com/docs/guides/auth/oauth-server/mcp-authentication,"When your MCP server makes requests to your Supabase APIs on behalf of authenticated users, it will send access tokens issued by Supabase Auth, like any other OAuth client.
+
+### Validating MCP tokens#
+
+Use the same token validation as other OAuth clients.
+
+See Token Security & RLS for more examples.
+
+## Security considerations#
+
+### User approval#
+
+Always require explicit user approval for MCP clients:
+
+## Troubleshooting#
+
+### MCP client can't discover OAuth configuration# [...] The Model Context Protocol (MCP) is an open standard for connecting AI agents and LLM tools to data sources and services. While Supabase doesn't provide MCP server functionality, you can build your own MCP servers that connect to your Supabase project and leverage Supabase Auth's OAuth 2.1 capabilities to authenticate AI agents using your existing user base.
+
+## Why use Supabase Auth for MCP?# [...] ## Prerequisites#
+
+Before setting up MCP authentication:
+
+## Setting up your MCP server#
+
+Configure your MCP ser"
+Neo4j,Developer Infra Data Platforms,https://neo4j.com/docs/api,https://neo4j.com/docs/mcp/current/authentication,"`mcp.json`
+`{
+""servers"": {
+""neo4j-http"": {
+""type"": ""http"",
+""url"": ""
+""headers"": {
+""Authorization"": ""Basic BASE64_ENCODED_CREDENTIALS""
+}
+}
+}
+}`
+
+Generate the base64-encoded credentials:
+
+`echo -n ""neo4j:password"" | base64`
+
+## Select an authentication method
+
+Use Bearer Token when:
+
+You’re using Neo4j Enterprise Edition or Aura with SSO/OIDC/OAuth configured
+
+You want to integrate with your organization’s identity provider
+
+You need to support OAuth 2.0 flows
+
+Use Basic Auth when: [...] Check that credentials are properly base64 encoded: `echo -n ""user:pass"" | base64`
+
+`echo -n ""user:pass"" | base64`
+
+Ensure the authorization header format is: `Authorization: Basic BASE64_STRING`
+
+`Authorization: Basic BASE64_STRING`
+
+Empty credentials error
+
+Both username and password must be non-empty
+
+The base64 string must decode to `username:password` format with both parts present
+
+`username:password`
+
+## General issues
+
+No authentication header provided [...] ## Basic authentication
+
+Basic authenti"
+Snowflake,Developer Infra Data Platforms,https://docs.snowflake.com,https://docs.snowflake.com/pt/user-guide/snowflake-cortex/cortex-agents-mcp-connectors,"OAuth authentication: Snowflake only supports using OAuth for all MCP server connections.
+ Disabling or dropping: Disabling an API integration preserves its configuration, but immediately invalidates all user tokens and blocks tool invocations. Dropping an API integration permanently deletes it along with all stored secrets. Disable the integration when performing maintenance. Drop the integration when decommissioning. [...] 1. Provider setup: The account admin creates an MCP server on the provider’s dashboard (for example, Salesforce or Atlassian) and obtains OAuth credentials.
+2. API integration: The account admin creates an API integration in Snowflake that stores the server URL, client ID, client secret, and OAuth endpoints.
+3. External MCP server creation: The account admin creates an external MCP server object that references the API integration. [...] | OAUTH\_AUTHORIZATION\_ENDPOINT | STRING | Yes | None | Endpoint where users authorize the connection |
+| OAUTH\_CLIENT\_AUTH\_M"
+MongoDB Atlas,Developer Infra Data Platforms,https://mongodb.com/docs/atlas/api,https://x.com/iamdevloper?lang=en,"Sep 14
+
+  Nobody has ever read the documentation. They have read the Slack thread where someone explained it once, three years ago, to a different person."
+Datadog,Developer Infra Data Platforms,https://docs.datadoghq.com/api,https://docs.datadoghq.com/extend/integrations/api_integration,"OAuth 2.0 is an industry-standard authorization framework that enables secure access to Datadog APIs without exposing user credentials. It issues scoped, revocable tokens, offering stronger security and a better user experience than API or application keys.
+
+OAuth is available only to approved Technology Partners developing official Datadog integrations. Standalone OAuth clients are not supported. [...] To submit data to Datadog, your integration must request the `api_keys_write` scope and make an API call during the OAuth handshake to create an API key on behalf of the user. [...] ```
+headers = {""Authorization"": ""Bearer {}"".format(access_token)} headers = {""Authorization"": ""Bearer {}"".format(access_token)} headers ={""Authorization"": ""Bearer {} "". format(access_token)}
+```
+
+For more information, see Implement the OAuth protocol.
+
+### API requests
+
+If you’re getting a forbidden error when trying to make an API call to a specific endpoint and you’ve enabled the correct scope for that end"
+Sentry,Developer Infra Data Platforms,https://docs.sentry.io/api,https://docs.sentry.io/api/auth,"Skip to content
+
+Go to Sentry
+
+ Home
+ API Reference
+ Authentication
+
+# Authentication
+
+## Auth Tokens
+
+Authentication tokens are passed using an auth header, and are used to authenticate as a user or organization account with the API. In our documentation, we have several placeholders that appear between curly braces or chevrons, such as `{API_KEY}` or , which you will need to replace with one of your authentication tokens in order to use the API call effectively. [...] ```
+curl -H 'Authorization: Bearer {ACCESS_TOKEN}' \ curl -H'Authorization: Bearer {ACCESS_TOKEN}' \  
+```
+
+### Organization Scoping
+
+A Sentry user can belong to multiple organizations. The access token only provides access to the specific organization the user selected during the OAuth flow. The `/api/0/organizations/` endpoint will only return the connected organization.
+
+### Device Authorization Flow [...] ## OAuth2
+
+For third-party applications that need to access Sentry on behalf of users, Sentry supports OAuth2 wi"
+Notion,Productivity Project Management,https://developers.notion.com,https://www.scalekit.com/blog/stripe-mcp-vs-api,"Connect is the second boundary. MCP authorizes a single account context, so platform onboarding and acting across many connected merchant accounts remain REST patterns. High-volume usage ingestion through the v2 Meter Event Stream is REST-only as well.
+
+### The auth path each one puts you on
+
+This is where Stripe diverges from Slack, Notion, and Salesforce. Their hosted MCP servers are OAuth-only. Stripe's is not.
+
+Auth method
+
+Stripe MCP
+
+Stripe API
+
+Interactive user OAuth
+
+Yes (MCP spec) [...] Authentication is OAuth per the MCP specification for interactive clients. For autonomous agents, Stripe documents passing a restricted API key as a bearer token in the `Authorization` header. Administrators enable MCP access in the Dashboard, managed separately for sandbox and live mode. Official docs: `
+
+### Stripe API [...] on MCP, the event-driven pipeline on REST. Either way the credential problem is the same, and that is the part that needs production-grade infrastructure."
+Airtable,Productivity Project Management,https://airtable.com/developers,https://ones.com/blog/developers-quick-start-to-airtable-api-documentation,"Airtable developer documentation is the official resource that explains how to interact with your Airtable bases using the REST API. It covers everything from authenticating your requests to manipulating records, fields, and views programmatically. [...] 1. Start with the authentication method. Airtable supports personal access tokens and API keys. The docs clearly explain which header to use. You’ll find the auth section right at the top of the sidebar – don’t skip it or you’ll hit 403 errors immediately.
+2. Locate your base ID and table name. Every endpoint requires a base ID and a table name or ID. The docs show you exactly where to grab the base ID from your URL, and how to retrieve table names programmatically. [...] Think of it as the instruction manual for talking to your Airtable data outside the UI. You’ll find the complete API reference, authentication guides, rate limits, and practical examples. The documentation is structured around the concept of “bases” and “tables,” whic"
+Linear,Productivity Project Management,https://developers.linear.app,https://www.scalekit.com/blog/linear-mcp-vs-api,"Linear MCP authenticates with OAuth 2.1 plus Dynamic Client Registration, and it also accepts a Linear API key or OAuth token passed in the Authorization: Bearer header. The GraphQL API adds personal API keys, the Authorization Code flow with PKCE, and the Client Credentials grant for app actor (service account) tokens. [...] Authentication accepts personal API keys (`Authorization:` , no `Bearer`, scopable to Read, Write, Admin, Create issues, or Create comments, and limited to specific teams), OAuth 2.0 Authorization Code with PKCE, and the Client Credentials grant for app actor tokens used in server-to-server work.
+
+Official docs: linear.app/developers/graphql.
+
+## Comparing them where it matters for agents
+
+### What your agent can actually do [...] Linear's official MCP server covers issue, comment, project, milestone, initiative, and project-update operations plus documentation search. Webhooks, arbitrary GraphQL field selection, OAuth application management, and high-volume compl"
+Jira,Productivity Project Management,https://developer.atlassian.com,https://developer.atlassian.com/server/jira/platform/jira-rest-api-example-oauth-authentication-6291692,"# Jira Data Center
+
+# Jira Data Center
+
+# JIRA Developer Documentation : JIRA REST API Example - OAuth authentication
+
+This page shows you how to allow REST clients to authenticate themselves using OAuth. This is one of three methods that you can use for authentication against the JIRA REST API; the other two being basic authentication and \\cookie-based authentication \\(see related information).
+
+## Overview [...] When creating the Application Link use a placeholder URL or the correct URL to your client, if your client can be reached via HTTP and choose the Generic Application type. After this Application Link has been created, edit the configuration and go to the incoming authentication configuration screen and select OAuth. Enter in this the public key and the consumer key which your client will use when making requests to JIRA. [...] ## Step 2: Configuring the client
+
+Your client will require the following information to be able to make authentication requests to JIRA.
+
+| OAuth Co"
+Asana,Productivity Project Management,https://developers.asana.com,https://developers.asana.com/docs/integrating-with-asanas-mcp-server,"This guide walks you through connecting your MCP client to the official Asana MCP server. You'll create an OAuth app in the Asana developer console and use it to authenticate your MCP client.
+
+## Overview
+
+The Asana V2 MCP server is generally available and uses OAuth for authorization. You'll pre-register your MCP app in the developer console, where you can create both standard API apps and MCP apps. [...] The MCP authorization flow follows the same process as our existing OAuth authorization flow, with one key difference: the optional `resource` parameter.
+
+When directing users to the authorization endpoint, you can include the `resource` parameter to specify the MCP server:
+
+```
+ ?client_id=YOUR_CLIENT_ID &redirect_uri=YOUR_REDIRECT_URL &response_type=code &resource= &state=RANDOM_STRING &code_challenge={SHA256_CHALLENGE} &code_challenge_method=S256 
+```
+
+Parameters: [...] Important: Tokens issued for MCP apps only work with the MCP server. This separation follows MCP security best p"
+Monday.com,Productivity Project Management,https://developer.monday.com,https://finance.yahoo.com/news/apollo-mcp-server-launch-positions-130000252.html,"Zero-code MCP tool creation: Apollo MCP Server lets developers instantly turn GraphQL schema or operations into MCP tools without writing a single line of procedural code.
+ Native REST and GraphQL support: Apollo MCP works with any combination of unmodified REST APIs via Apollo Connectors as well as native GraphQL services.
+ Deterministic, efficient execution: Apollo implements precise and consistent API call execution across every interaction. [...] and numerous other functional and non-functional requirements. GraphQL's declarative, schema-driven approach to API orchestration provides these capabilities out-of-the-box, making it uniquely suited to serve as the foundation for MCP implementations, especially in an AI landscape where speed, security, and agility are paramount. [...] By implementing MCP, the Apollo MCP Server enables teams to move at AI speed while maintaining appropriate governance. It also simplifies deployment, with options to start in a local environment via Apollo's"
+ClickUp,Productivity Project Management,https://clickup.com/api,https://www.scalekit.com/blog/clickup-mcp-vs-api,"### A documentation inconsistency worth flagging
+
+ClickUp's own FAQ states deletion tools were deliberately left out of the MCP server ""as a safety measure."" The Supported Tools page, published by the same team, lists a ""Delete task"" tool with a worked example. Both pages are live on developer.clickup.com at the time of writing. Treat task deletion through MCP as unconfirmed until you test it directly against your own workspace, since the two official sources disagree. [...] ClickUp's official MCP server is in public beta and exposes roughly 40 tools across search, tasks, time tracking, chat, and docs. Goals, webhooks, Custom Field creation, and Space-level tag management exist only in the REST API.
+ MCP auth is OAuth only, with no personal token option and no custom API key path. The REST API supports both a personal token (never expires) and OAuth (access tokens currently do not expire either, though both remain user-revocable). [...] Scalekit's ClickUp connector authenticates throug"
+Coda,Productivity Project Management,https://coda.io/developers,https://apitracker.io/a/coda-io,"Developer docs
+
+-
+
+API Reference
+
+-
+
+Webhooks
+
+-
+
+Webhooks management API
+
+-
+
+Sandbox environment
+
+-
+
+Authentication
+
+Identity protocols
+
+-
+
+SSO / Social login
+
+-
+
+OAuth playground
+
+-
+
+GraphQL playground
+
+-
+
+API Explorer
+
+-
+
+Postman / Insomnia collections
+
+OpenAPI/Swagger specs
+
+Free developer account
+
+-
+
+App listing requirements
+
+-
+
+Pagination style
+
+-
+
+CLI
+
+-
+
+Query Language
+
+-
+
+Community
+
+-
+
+GitHub
+
+-
+
+Custom object support
+
+-
+
+Stackoverflow tags
+
+-
+
+Integrations
+
+9
+
+Ecosystem
+
+- [...] 9
+
+Ecosystem
+
+-
+
+API pricing
+
+-
+
+API rate limits
+
+-
+
+API changelog
+
+-
+
+Status page
+
+-
+
+Open-source
+
+-
+
+Tutorials
+
+-
+
+Samples & examples
+
+-
+
+Base endpoint
+
+-
+
+GraphQL endpoint
+
+-
+
+IDE Extensions
+
+-
+
+Estimated developers
+
+-
+
+Estimated customers
+
+-
+
+Estimated users
+
+-
+
+## Coda Videos
+
+We don't have videos for this API yet.Get in touch to suggest profile updates.
+
+## Coda API tips
+
+We don't have tips for this API yet.Get in touch if you want to submit a tip.
+
+## Coda screenshots [...] company
+
+# CodaAPI
+
+"
+Smartsheet,Productivity Project Management,https://smartsheet.com/developers,https://en.wikipedia.org/wiki/Documentation,"## References
+
+[edit] [...] ## Producing documentation
+
+[edit] [...] # Documentation
+
+ العربية
+ Azərbaycanca
+ Bosanski
+ Čeština
+ Dansk
+ Deutsch
+ Esperanto
+ Euskara
+ فارسی
+ Suomi
+ עברית
+ हिन्दी
+ Magyar
+ Հայերեն
+ Bahasa Indonesia
+ 日本語
+ ಕನ್ನಡ
+ 한국어
+ Македонски
+ മലയാളം
+ Nederlands
+ Polski
+ Português
+ Romnă
+ Русский
+ Русиньскый
+ Simple English
+ Shqip
+ Svenska
+ தமிழ்
+ తెలుగు
+ Türkçe
+ Українська
+
+Edit links
+
+ Article
+ Talk
+
+ Read
+ Edit
+ View history
+
+Tools
+
+Actions
+
+ Read
+ Edit
+ View history
+
+General"
+Harvest,Productivity Project Management,https://help.getharvest.com/api-v2,https://help.getharvest.com/api-v2/authentication-api/authentication/authentication,"Name–name of your application.
+ Redirect URL–the URL in your integration; successful authentications will be redirected to by default.
+ Multi Account–does your integration support multiple user account access or work with only one authenticated account.
+ Products–scope of access requested; can be either Harvest, Forecast or both. It is advised to pick the minimal scope required for the integration to work.
+
+## OAuth2 authorization flow
+
+### For server-side applications [...] We use the Authorization Code flow for server-side authorization. To start the authorization flow, you need to redirect the user to the following URL:
+
+```
+ 
+```
+
+This URL allows the user to authenticate on Harvest ID and lets them authorize access to their account(s) depending on your OAuth2 Application settings and their choice.
+
+This endpoint accepts other parameters: [...] `harvest:{ACCOUNT_ID}`–a Harvest account ID that the user granted access to.
+ `forecast:{ACCOUNT_ID}`–a Forecast account ID that the user gr"
+Stripe,Finance Fintech,https://stripe.com/docs/api,https://docs.stripe.com/mcp,"Stripe’s MCP server uses OAuth to authorize clients according to the MCP specification. OAuth lets you grant and revoke access without sharing an API key with the client.
+
+When you connect an MCP client, it opens Stripe’s OAuth consent page. Use this page to authorize the client to access your Stripe data. After you authorize an MCP client with OAuth, you can manage its session in the Stripe Dashboard. [...] If you’re a Connect platform, you can also use MCP to retrieve or update resources for your connected accounts. For example, a support agent could retrieve a customer or investigate a payment for a specific connected account.
+
+MCP doesn’t support OAuth when acting on behalf of connected accounts. Instead, authenticate with a restricted API key for your platform and grant only the connected-account permissions that your agent needs. [...] The Stripe MCP server exposes multiple APIs that you can call with the `stripe_api_read` and `stripe_api_write` tools. This access makes much of t"
+Plaid,Finance Fintech,https://plaid.com/docs,https://plaid.com/docs/resources/mcp,"To connect to the Dashboard MCP server, first create an OAuth token with the `mcp:dashboard` scope and the `client_credentials` grant type by calling `/oauth/token`.
+
+Creating an access token
+
+```
+curl -X POST  \ curl -X POST  \   -H 'Content-Type: application/json' \  -H 'Content-Type: application/json'  \   -d '{  -d '{  ""client_id"": ""${PLAID_CLIENT_ID}"",  ""client_secret"": ""YOUR_PRODUCTION_SECRET"",  ""grant_type"": ""client_credentials"",  ""scope"": ""mcp:dashboard""  }'
+``` [...] from  plaid. model. o_auth_token_request import  OAuthTokenRequest  DASHBOARD_MCP_SERVER_URL = "" DASHBOARD_MCP_SERVER_URL =  ""    def get_plaid_client():  def  get_plaid_client():   configuration = plaid.Configuration(  configuration =  plaid. Configuration(  host=plaid.Environment.Production,  host = plaid. Environment. Production,   api_key={  api_key ={  ""clientId"": os.environ[""PLAID_CLIENT_ID""],  ""clientId"":  os. environ[""PLAID_CLIENT_ID""],   ""secret"": os.environ[""PLAID_PRODUCTION_SECRET""], [...] import json i"
+Binance,Finance Fintech,https://binance-docs.github.io,https://docs.binance.us,"| Security type | API key | Signature | Description |
+ ---  --- |
+| `NONE` |  |  | Public market data |
+| `TRADE` | required | required | Trading on the exchange, placing and canceling orders |
+| `USER_DATA` | required | required | Private account information, such as order status and your trading history |
+| `USER_STREAM` | required |  | Managing User Data Stream subscriptions |
+| `MARKET_DATA` | required |  | Historical market data access | [...] `{
+""id"": ""4885f793-e5ad-4c3b-8f6c-55d891472b71"",
+""method"": ""order.place"",
+""params"": {
+""symbol"": ""BTCUSDT"",
+""side"": ""SELL"",
+""type"": ""LIMIT"",
+""timeInForce"": ""GTC"",
+""quantity"": ""0.01000000"",
+""price"": ""52000.00"",
+""newOrderRespType"": ""ACK"",
+""recvWindow"": 100,
+""timestamp"": 1645423376532,
+""apiKey"": ""vmPUZE6mv9SD5VNHk4HlWFsOr6aKE2zvsw0MuIgwCIPy6utIco14y7Ju91duEh8A"",
+""signature"": ""------ FILL ME ------""
+}
+}`
+
+Here is a step-by-step guide on how to sign requests.
+
+Example API key and secret key: [...] # Introduction
+
+Welcome to the Binance.US API Docu"
+Paygent Connect,Finance Fintech,https://paygent.com,https://docs.portkey.ai/docs/product/mcp-gateway/authentication,"### ​ Client Credentials
+
+For MCP servers using OAuth client credentials grant. You provide a client ID and secret when adding the server. Portkey fetches tokens and handles refresh. All users share the same credentials to the MCP server. Use this for shared resources, not personal data.
+
+### ​ Custom Headers
+
+For MCP servers using API keys or static tokens. Add headers when configuring the server. [...] API keys are scoped to workspaces. The key determines which MCP servers the request can access. Create keys in Settings > API Keys. The key must have `mcp invoke` permissions.
+
+### ​ OAuth 2.1
+
+For browser-based flows where users authenticate interactively. If no API key is provided, Portkey acts as the OAuth provider and initiates the consent flow. After authentication, your app receives a token to use for MCP requests. This is useful for: [...] Use per-user OAuth when the MCP server accesses user-specific data (email, repos, messages). Each user authorizes their own access. Use share"
+iPayX,Finance Fintech,https://ipayx.ai/docs,https://www.scalekit.com/blog/stripe-mcp-vs-api,"Connect is the second boundary. MCP authorizes a single account context, so platform onboarding and acting across many connected merchant accounts remain REST patterns. High-volume usage ingestion through the v2 Meter Event Stream is REST-only as well.
+
+### The auth path each one puts you on
+
+This is where Stripe diverges from Slack, Notion, and Salesforce. Their hosted MCP servers are OAuth-only. Stripe's is not.
+
+Auth method
+
+Stripe MCP
+
+Stripe API
+
+Interactive user OAuth
+
+Yes (MCP spec) [...] Authentication is OAuth per the MCP specification for interactive clients. For autonomous agents, Stripe documents passing a restricted API key as a bearer token in the `Authorization` header. Administrators enable MCP access in the Dashboard, managed separately for sandbox and live mode. Official docs: `
+
+### Stripe API [...] on MCP, the event-driven pipeline on REST. Either way the credential problem is the same, and that is the part that needs production-grade infrastructure."
+QuickBooks,Finance Fintech,https://developer.intuit.com,https://vorplabs.com/agent-tools/quickbooks-online-api,"VendorIntuitTypeAPIAvailabilityGenerally availableReviewed2026-07-30
+
+Quick facts
+
+Official API
+
+Yes. REST and GraphQL APIs with OAuth, sandbox, and production tiers.
+
+Official MCP
+
+Yes. An Intuit-owned open-source local MCP server exists on GitHub. Not a hosted endpoint.
+
+Production review
+
+Required. Marketplace estimates: 10 business days technical, up to 30 business days security, 5 business days marketing (estimates, not SLAs).
+
+Security reviews [...] a self-assessment; Marketplace listing adds technical, security, and marketing reviews with July 2026 estimated response times of 10, up to 30, and 5 business days respectively (estimates, not SLAs). Apps launching through an Intuit marketing channel undergo further security reviews initially and periodically thereafter. The Developer Terms require NIST compliance for AI or LLM use, Responsible AI principles, user consent, and written data-protection obligations on processors. OAuth requires [...] OAuth requires admin-user consent, an"
+Xero,Finance Fintech,https://developer.xero.com,https://developer.xero.com/documentation/guides/oauth2/auth-flow,"## On this page
+
+   Xero tenants
+   1. Send a user to authorize your app
+   2. Users are redirected back to you with a code
+   3. Exchange the code
+   4. Receive your tokens
+   5. Check the tenants you’re authorized to access
+   6. Call the API
+   Refreshing access and refresh tokens
+   Removing connections
+   Revoking tokens
+
+## AI toolkit
+
+   MCP Server
+   Agents Toolkit
+   Prompt Library
+
+## Documentation
+
+   OAuth 2
+   API reference
+   Webhooks
+
+## Community [...] ```
+{
+    ""nbf"": 1589363023,
+    ""exp"": 1589364823,
+    ""iss"": ""
+    ""aud"": ""
+    ""client_id"": ""91E5715B1199038080D6D0296EBC1648"",
+    ""sub"": ""a3a4dbafh3495a808ed7a7b964388f53"",
+    ""auth_time"": 1589361892,
+    ""xero_userid"": ""1945393b-6eb7-4143-b083-7ab26cd7690b"",
+    ""global_session_id"": ""ac2202575e824af3a181c50fcaa65c3c"",
+    ""jti"": ""4e7747cec4ce54d6512b4b0775166c5f"",
+    ""authentication_event_id"": ""d0ddcf81-f942-4f4d-b3c7-f98045204db4"",
+    ""scope"": [
+      ""email"",
+      ""profile"", [...] ### Best Practices 
+       Ov"
+Brex,Finance Fintech,https://developer.brex.com,https://developer.brex.com/docs/mcp,"Name: `brex`
+ Type: `http`
+ URL: `
+
+### Codex
+
+```
+codex mcp add brex --url  mcp add brex --url  codex  mcp  add  brex --url 
+```
+
+### Other MCP clients
+
+Any client that supports MCP HTTP transport can connect to ` If your client supports OAuth with Dynamic Client Registration, authentication is handled automatically. Otherwise, use an API key (see below).
+
+## Authentication
+
+The Brex MCP server supports two authentication methods.
+
+### OAuth (recommended) [...] ```
+Authorization: Bearer YOUR_BREX_ACCESS_TOKENAuthorization: Bearer YOUR_BREX_ACCESS_TOKENAuthorization: Bearer YOUR_BREX_ACCESS_TOKEN
+```
+
+For example, in Claude Code:
+
+```
+claude mcp add --transport http brex  \  --header ""Authorization: Bearer YOUR_BREX_ACCESS_TOKEN""claude mcp add --transport http brex  \ claude  mcp  add --transport  http  brex   \ --header ""Authorization: Bearer YOUR_BREX_ACCESS_TOKEN"" --header ""Authorization: Bearer YOUR_BREX_ACCESS_TOKEN""
+```
+
+Or in `.mcp.json`: [...] Once enabled, all users in your Br"
+Ramp,Finance Fintech,https://docs.ramp.com,https://docs.ramp.com/developer-api/v1/developer-mcp,"Unlike Ramp MCP servers that access account data, Developer MCP does not require a Ramp account, OAuth login, API key, or developer app. It only serves public Ramp Developer API documentation.
+
+## Why use Developer MCP?
+
+Permanent link: Why use Developer MCP?
+
+### Current API documentation
+
+Permanent link: Current API documentation [...] The Developer MCP server is subject to change. Feedback and questions can be submitted via a Developer API support ticket.
+
+## What is Developer MCP?
+
+Permanent link: What is Developer MCP?
+
+Developer MCP is Ramp's unauthenticated Model Context Protocol server for developers building with Ramp's API. It gives AI assistants live access to Ramp's developer documentation, API reference, and OpenAPI schemas directly inside your coding workflow. [...] `""How do I set up OAuth with the Ramp API?""""What fields are required to create a bill?""""Show me the schema for POST /developer/v1/token""""Find the endpoint for deleting an accounting connection""""How do I verify"
+PitchBook,Finance Fintech,https://pitchbook.com,https://www.scalekit.com/blog/stripe-mcp-vs-api,"Connect is the second boundary. MCP authorizes a single account context, so platform onboarding and acting across many connected merchant accounts remain REST patterns. High-volume usage ingestion through the v2 Meter Event Stream is REST-only as well.
+
+### The auth path each one puts you on
+
+This is where Stripe diverges from Slack, Notion, and Salesforce. Their hosted MCP servers are OAuth-only. Stripe's is not.
+
+Auth method
+
+Stripe MCP
+
+Stripe API
+
+Interactive user OAuth
+
+Yes (MCP spec) [...] on MCP, the event-driven pipeline on REST. Either way the credential problem is the same, and that is the part that needs production-grade infrastructure. [...] Authentication is OAuth per the MCP specification for interactive clients. For autonomous agents, Stripe documents passing a restricted API key as a bearer token in the `Authorization` header. Administrators enable MCP access in the Dashboard, managed separately for sandbox and live mode. Official docs: `
+
+### Stripe API"
+NotebookLM,AI Research Media,https://cloud.google.com/gemini,https://roomi-fields.github.io/notebooklm-mcp/notebooklm-rest-api,"| Code Meaning Description|  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  ---  ---  ---  ---  ---  ---  ---  ---  --- | | `200` OK Successful request|  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  ---  ---  ---  ---  ---  ---  ---  | `400` Bad Request Missing or invalid parameters|  |  |  |  |  |  |  |  |  |  |  |  |  ---  ---  ---  ---  ---  --- | | `401` Unauthorized Authentication required (if API key enabled)|  |  |  |  |  |  |  |  |  |  ---  ---  ---  ---  | `404` Not Found [...] }
+
+}
+
+}
+
+]
+
+}`
+
+Complete API Documentation! ✅ [...] Companion guides: REST batch pattern (1 000 questions overnight) ·
+n8n integration · Multi-account rotation ·
+Compare with PleasePrompto/notebooklm-mcp v2.0.0
+
+## 🌐 Base URL​
+
+`
+
+Or for network access: `
+
+`
+
+## Available Endpoints (45 total)​"")
+
+### Authentication​"
+Otter AI,AI Research Media,https://help.otter.ai,https://www.scalekit.com/blog/otter-mcp-vs-api,"The Public API is a REST surface at api.otter.ai/v1, available to Enterprise workspaces only. It authenticates with a Bearer API key created in the workspace Developer settings, capped at two keys per user and 10 requests per second. It exposes channels and members, conversations (list, retrieve, and POST to ingest a file), audio download links, workspace details, and cursor-based pagination. It also ships webhooks. The full reference is in Otter's Public API documentation. [...] Otter runs a provider-hosted MCP server at mcp.otter.ai/mcp. Access is OAuth-authenticated with per-meeting permissions, so an agent reads only meetings the user captured or had shared with them. The surface is deliberately small: three tools that search meetings, fetch a full transcript, and return the current user with get user info. There are no create, update, or delete tools; the server is read-only by design. Details are in Otter's MCP server documentation. [...] This is where Otter departs from the usua"
+Fathom,AI Research Media,https://fathom.video,https://pipeline.zoominfo.com/sales/fathom-api-review,"The Fathom Developer Hub documents a REST surface at  with TypeScript and Python SDKs, OAuth 2.0 for public integrations, webhook support, and an MCP server for AI assistants. API access is available on all plan tiers including the free plan, which is uncommon for a meeting intelligence platform. The developer docs are public, the OpenAPI spec is downloadable, and you can generate an API key and start making calls without upgrading. [...] | Attribute | Detail |
+ --- |
+| API type | REST over HTTPS, JSON responses |
+| Authentication | API key via X-Api-Key header (user-scoped); OAuth 2.0 for public integrations |
+| Base URL |  |
+| Rate limits | 60 requests per 60-second window (global); 30 per 60 seconds for heavy endpoints |
+| SDKs | Official TypeScript and Python SDKs (both beta) |
+| Webhooks | Yes, new-meeting-content-ready event with HMAC SHA-256 signature verification |
+| MCP server | Yes, at  for Claude and ChatGPT | [...] SDK docs: dedicated pages for authentication, filtering, pa"
+Consensus,AI Research Media,https://consensus.app,https://www.scalekit.com/blog/stripe-mcp-vs-api,"Connect is the second boundary. MCP authorizes a single account context, so platform onboarding and acting across many connected merchant accounts remain REST patterns. High-volume usage ingestion through the v2 Meter Event Stream is REST-only as well.
+
+### The auth path each one puts you on
+
+This is where Stripe diverges from Slack, Notion, and Salesforce. Their hosted MCP servers are OAuth-only. Stripe's is not.
+
+Auth method
+
+Stripe MCP
+
+Stripe API
+
+Interactive user OAuth
+
+Yes (MCP spec) [...] Authentication is OAuth per the MCP specification for interactive clients. For autonomous agents, Stripe documents passing a restricted API key as a bearer token in the `Authorization` header. Administrators enable MCP access in the Dashboard, managed separately for sandbox and live mode. Official docs: `
+
+### Stripe API [...] on MCP, the event-driven pipeline on REST. Either way the credential problem is the same, and that is the part that needs production-grade infrastructure."
+Reducto,AI Research Media,https://reducto.ai,https://docs.reducto.ai/mcp-server,"| Variable | Required | Default | Description |
+ ---  --- |
+| `REDUCTO_API_KEY` | No\ | none | API key (or authenticate via `--login`) |
+| `REDUCTO_BASE_URL` | No | ` | Override the API base URL (EU region, on-prem) |
+| `REDUCTO_MCP_MAX_RESPONSE_SIZE` | No | `50000` | Response truncation threshold in characters |
+| `REDUCTO_MCP_TIMEOUT` | No | `300` | Request timeout in seconds |
+| `REDUCTO_MCP_TRANSPORT` | No | `stdio` | Transport mode: `stdio` or `http` | [...] This opens an OAuth device-code flow in your browser. Once approved, your API key is saved to `~/.reducto/config.yaml` with `chmod 600`.If you already use the Reducto CLI, you’re authenticated already. The MCP server reads from the same credential file.
+
+3
+
+Add to your MCP client
+
+```
+{{ ""mcpServers"": { ""mcpServers"": { ""reducto"": { ""reducto"": { ""command"": ""uvx"",  ""command"": ""uvx"", ""args"": [""mcp-server-reducto""]  ""args"": [""mcp-server-reducto""] } } } }}}
+``` [...] If a response includes `truncated: true`, either call `get_job(jo"
+Devin,AI Research Media,https://docs.devin.ai,https://www.scalekit.com/blog/stripe-mcp-vs-api,"Connect is the second boundary. MCP authorizes a single account context, so platform onboarding and acting across many connected merchant accounts remain REST patterns. High-volume usage ingestion through the v2 Meter Event Stream is REST-only as well.
+
+### The auth path each one puts you on
+
+This is where Stripe diverges from Slack, Notion, and Salesforce. Their hosted MCP servers are OAuth-only. Stripe's is not.
+
+Auth method
+
+Stripe MCP
+
+Stripe API
+
+Interactive user OAuth
+
+Yes (MCP spec) [...] Authentication is OAuth per the MCP specification for interactive clients. For autonomous agents, Stripe documents passing a restricted API key as a bearer token in the `Authorization` header. Administrators enable MCP access in the Dashboard, managed separately for sandbox and live mode. Official docs: `
+
+### Stripe API [...] Stripe MCP is the unusual one. Unlike most hosted MCP servers, it supports both OAuth and a restricted API key passed as a bearer token, so headless agents are a document"
+higgsfield,AI Research Media,https://higgsfield.ai/cli,https://apidog.com/blog/higgsfield-api,"Higgsfield API requires API key authentication for all endpoints. You include the key in the Authorization header as a Bearer token. For example, in a cURL request, you add: `-H ""Authorization: Bearer YOUR_API_KEY""`.
+
+This method verifies your identity and tracks usage against your account limits. Without it, servers reject requests with a 401 Unauthorized error. Always regenerate keys if compromised, and use environment variables in code to store them safely. [...] Higgsfield API serves as a centralized interface for generative media models. It connects users to a vast library that includes text-to-image generators like FLUX, image-to-video animators, and more. Developers access over 100 models through a single endpoint structure, which simplifies development compared to managing multiple provider integrations. [...] Higgsfield API empowers developers to integrate advanced generative AI models into applications seamlessly. This platform unifies access to tools for creating images, vid"
+Mermaid CLI,AI Research Media,https://github.com/mermaid-js/mermaid-cli,https://www.scalekit.com/blog/stripe-mcp-vs-api,"Connect is the second boundary. MCP authorizes a single account context, so platform onboarding and acting across many connected merchant accounts remain REST patterns. High-volume usage ingestion through the v2 Meter Event Stream is REST-only as well.
+
+### The auth path each one puts you on
+
+This is where Stripe diverges from Slack, Notion, and Salesforce. Their hosted MCP servers are OAuth-only. Stripe's is not.
+
+Auth method
+
+Stripe MCP
+
+Stripe API
+
+Interactive user OAuth
+
+Yes (MCP spec) [...] Authentication is OAuth per the MCP specification for interactive clients. For autonomous agents, Stripe documents passing a restricted API key as a bearer token in the `Authorization` header. Administrators enable MCP access in the Dashboard, managed separately for sandbox and live mode. Official docs: `
+
+### Stripe API [...] on MCP, the event-driven pipeline on REST. Either way the credential problem is the same, and that is the part that needs production-grade infrastructure."
+YouTube Transcript,AI Research Media,https://transcriptapi.com,https://transcriptapi.com/blog/youtube-transcript-api-complete-developer-guide,"TranscriptAPI.comTranscriptAPI.com
+
+YouTube Transcript API: The Complete Developer Guide
+
+# YouTube Transcript API: The Complete Developer Guide
+
+By Nikhil KumarPublished March 19, 2026Last updated June 25, 202616 min read
+
+YouTube has over 800 million videos. Almost all of them have transcripts. And yet, getting that text into your application is still way harder than it should be. [...] Nothing fancy. Standard `requests` library. The API key goes in the `Authorization` header, not in the URL. Keep it out of your source code by using environment variables.
+
+### And in JavaScript [...] It's the official solution from Google
+ Well-documented with client libraries in many languages
+ Stable and maintained
+
+What's not good:
+
+ Cannot access auto-generated captions (only manually uploaded ones)
+ Requires OAuth for caption downloads, not just an API key
+ Strict quota limits (10,000 units/day by default)
+ Complex setup with Google Cloud Console
+ Downloading captions costs 200 quota units per v"
+Grain,AI Research Media,https://grain.com,https://zuplo.com/learn/mcp/authentication/api-key,"type: ""http"", url: "" url: "" headers: { Authorization: `Bearer ${process.env.MCP_API_KEY}` }, headers: { Authorization: `Bearer ${process. env. MCP_API_KEY}` }, }, }, }, }, // Auto-approves these tools. Anything unlisted stops for a // Auto-approves these tools. Anything unlisted stops for a // permission prompt, which a headless run never gets past. // permission prompt, which a headless run never gets past. allowedTools: [""mcp__example__search""], allowedTools: [""mcp__example__search""], }, [...] POST /mcp (carries the credential)   tools/list, Authorization: Bearer sk\_live\_…
+2. 2 
+
+   ↻ Inside MCP server
+
+     Look the key up and resolve it to a caller
+3. 3 
+
+   MCP server → to Your agent
+
+     200 OK   tools listed
+4. There is no session credential to establish, so every later request carries the same static key.
+
+   4 
+
+   Your agent → to MCP server
+
+     POST /mcp (carries the credential)   tools/call, same Authorization header
+5. 5 
+
+   MCP server → to Your agent [...] Specificat"

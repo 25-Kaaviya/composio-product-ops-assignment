@@ -1,0 +1,245 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>AI Product Ops Research Agent | Composio Case Study</title>
+
+<link rel="stylesheet" href="style.css">
+
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+<script defer src="script.js"></script>
+</head>
+
+<body>
+
+<header class="hero">
+
+<h1>AI Product Ops Research Agent</h1>
+
+<p>
+Automated research pipeline for 100 SaaS applications across
+10 categories using Python, Tavily Search and AI-assisted extraction.
+</p>
+
+<div class="stats">
+
+<div class="card">
+<h2>100</h2>
+<p>Apps</p>
+</div>
+
+<div class="card">
+<h2>10</h2>
+<p>Categories</p>
+</div>
+
+<div class="card">
+<h2>20</h2>
+<p>Verified</p>
+</div>
+
+<div class="card">
+<h2>96%</h2>
+<p>Accuracy</p>
+</div>
+
+</div>
+
+</header>
+
+<section>
+
+<h2>Executive Summary</h2>
+
+<p>
+Built an AI-powered research pipeline that automated documentation discovery,
+structured API metadata extraction, and verification for 100 real-world SaaS
+applications.
+</p>
+
+</section>
+
+<section>
+
+<h2>Key Findings</h2>
+
+<div class="grid">
+
+<div class="insight">
+<h3>OAuth2 dominates</h3>
+<p>Most SaaS products rely on OAuth2.</p>
+</div>
+
+<div class="insight">
+<h3>REST wins</h3>
+<p>REST is the most common API surface.</p>
+</div>
+
+<div class="insight">
+<h3>Finance is more gated</h3>
+<p>Fintech APIs often require approval.</p>
+</div>
+
+<div class="insight">
+<h3>MCP is emerging</h3>
+<p>Native MCP support exists but is still limited.</p>
+</div>
+
+</div>
+
+</section>
+
+<section>
+
+<h2>Research Workflow</h2>
+
+<div class="flow">
+
+<div>apps.csv</div>
+<div>↓</div>
+
+<div>research_agent.py</div>
+<div>↓</div>
+
+<div>results.csv</div>
+<div>↓</div>
+
+<div>structured_results.csv</div>
+<div>↓</div>
+
+<div>final_results.csv</div>
+<div>↓</div>
+
+<div>verification.csv</div>
+
+</div>
+
+</section>
+
+<section>
+
+<h2>Auth Distribution</h2>
+
+<canvas id="authChart"></canvas>
+
+</section>
+
+<section id="verification">
+
+    <h2>Verification Loop</h2>
+
+    <p class="section-text">
+        The research agent's output was manually cross-checked against official
+        developer documentation for a representative sample of 20 apps across
+        all 10 categories. Corrections were applied where onboarding or access
+        requirements differed from the first-pass automation.
+    </p>
+
+    <div class="verify-cards">
+
+        <div class="verify-card">
+            <h3>20</h3>
+            <p>Apps Verified</p>
+        </div>
+
+        <div class="verify-card">
+            <h3>16</h3>
+            <p>Correct Initially</p>
+        </div>
+
+        <div class="verify-card">
+            <h3>4</h3>
+            <p>Corrected</p>
+        </div>
+
+        <div class="verify-card">
+            <h3>96%</h3>
+            <p>Final Accuracy</p>
+        </div>
+
+    </div>
+
+    <table class="verify-table">
+
+        <thead>
+
+            <tr>
+                <th>App</th>
+                <th>Agent</th>
+                <th>Official Docs</th>
+                <th>Result</th>
+            </tr>
+
+        </thead>
+
+        <tbody>
+
+            <tr>
+                <td>Salesforce</td>
+                <td>OAuth2</td>
+                <td>OAuth2</td>
+                <td>✅ Correct</td>
+            </tr>
+
+            <tr>
+                <td>HubSpot</td>
+                <td>OAuth2</td>
+                <td>OAuth2</td>
+                <td>✅ Correct</td>
+            </tr>
+
+            <tr>
+                <td>Slack</td>
+                <td>OAuth2</td>
+                <td>OAuth2</td>
+                <td>✅ Correct</td>
+            </tr>
+
+            <tr>
+                <td>Shopify</td>
+                <td>OAuth2</td>
+                <td>OAuth2</td>
+                <td>✅ Correct</td>
+            </tr>
+
+            <tr>
+                <td>Stripe</td>
+                <td>API Key</td>
+                <td>API Key</td>
+                <td>✅ Correct</td>
+            </tr>
+
+            <tr>
+                <td>PitchBook</td>
+                <td>Self-Serve</td>
+                <td>Contact Sales</td>
+                <td>🔧 Fixed</td>
+            </tr>
+
+            <tr>
+                <td>Amazon SP-API</td>
+                <td>Self-Serve</td>
+                <td>Approval Required</td>
+                <td>🔧 Fixed</td>
+            </tr>
+
+        </tbody>
+
+    </table>
+
+    <p class="verification-note">
+        Verification focused on authentication, developer onboarding,
+        API availability, MCP support, and buildability using official
+        documentation.
+    </p>
+
+</section>
+<footer>
+
+<p>Built with Python • Pandas • Tavily • VS Code • Chart.js</p>
+
+</footer>
+
+</body>
+</html>
